@@ -42,8 +42,7 @@ class DashboardPage extends React.Component {
   }
   
   fetchUsers() {
-		console.log('fetchProfileStockInfo');
-		fetch(baseApiUri+'api/users/', { method: 'GET' })
+		fetch(baseApiUri+'api/users/count', { method: 'GET' })
 		.then(res => res.json())
 		.then(json => {
 			if(json.success) {
@@ -63,8 +62,7 @@ class DashboardPage extends React.Component {
   }
   
   fetchWorkshops() {
-		console.log('fetchProfileStockInfo');
-		fetch(baseApiUri+'api/workshops/', { method: 'GET' })
+		fetch(baseApiUri+'api/workshops/count', { method: 'GET' })
 		.then(res => res.json())
 		.then(json => {
 			if(json.success) {
@@ -85,7 +83,6 @@ class DashboardPage extends React.Component {
   }
   
   fetchGenres() {
-		console.log('fetchProfileStockInfo');
 		fetch(baseApiUri+'api/genres/', { method: 'GET' })
 		.then(res => res.json())
 		.then(json => {
@@ -108,15 +105,15 @@ class DashboardPage extends React.Component {
 
   render(){
     const {
-			error,
-			isLoading,
+			//error,
+			//isLoading,
 			// symbol,
 			// lastRefreshed,
 			// timezone,
-      results,
+      //results,
       users,
       workshops,
-      rsvps,
+      //rsvps,
       genres,
 
     } = this.state;
@@ -199,6 +196,6 @@ class DashboardPage extends React.Component {
   }
 
   
-};
+}
 
 export default DashboardPage;

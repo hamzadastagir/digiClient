@@ -12,7 +12,7 @@ import {Link} from 'react-router';
 import ThemeDefault from '../theme-default';
 
 import AuthService from './AuthService';
-const Auth = new AuthService();
+//const Auth = new AuthService();
 
 
 const styles = {
@@ -98,9 +98,10 @@ class LoginPage extends React.Component {
   handleFormSubmit(e){
     e.preventDefault();
     this.Auth.login(this.state.email,this.state.password)
-        .then(res =>{
+        .then(response => {
             this.props.route.history.replace('/');
-        })
+            console.log(response);
+    })
         .catch(err =>{
             alert(err);
         })

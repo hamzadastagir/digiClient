@@ -1,5 +1,5 @@
 import AuthService from '../containers/AuthService';
-import withAuth from '../containers/withAuth';
+//import withAuth from '../containers/withAuth';
 const Auth = new AuthService();
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';

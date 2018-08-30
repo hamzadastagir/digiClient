@@ -11,9 +11,9 @@ import Data from '../data';
 
 
 
-import AuthService from './AuthService';
-import withAuth from './withAuth';
-const Auth = new AuthService();
+//import AuthService from './AuthService';
+//import withAuth from './withAuth';
+//const Auth = new AuthService();
 
 
 class App extends Component {
