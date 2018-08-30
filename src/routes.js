@@ -1,8 +1,6 @@
 import React from 'react';
-import {Router, browserHistory } from 'react-router';
-import {  IndexRoute,  } from 'react-router';
-import { BrowserRouter, Route, Link, Redirect, withRouter } from 'react-router-dom';
-import LoginDummy from './containers/LoginDummy'
+import { IndexRoute, browserHistory } from 'react-router';
+import { Route } from 'react-router-dom';
 import App from './containers/App';
 import NotFoundPage from './containers/NotFoundPage.js';
 import LoginPage from './containers/LoginPage';

@@ -1,7 +1,7 @@
 {
-  "name": "react-material-admin-template",
+  "name": "digiClient",
   "version": "0.0.1",
-  "description": "Admin template using React and Material-UI",
+  "description": "Admin template for DigiTransLabs",
   "engines": {
     "npm": ">=3"
   },
@@ -21,7 +21,7 @@
     "test:watch": "npm run test -- --watch",
     "open:cover": "npm run test:cover && open coverage/index.html"
   },
-  "author": "Rafael Zeffa",
+  "author": "Hamza A Dastagir",
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "3.0.0",

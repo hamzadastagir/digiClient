@@ -1,7 +1,7 @@
 
 import React, { Component, PropTypes } from 'react';
-import {browserHistory} from 'react-router'
-import { Route, IndexRoute } from 'react-router';
+//import {browserHistory} from 'react-router'
+//import { Route, IndexRoute } from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from '../components/Header';
 import LeftDrawer from '../components/LeftDrawer';

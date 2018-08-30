@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Router, browserHistory, history } from 'react-router';
 import AuthService from './AuthService';
 const baseApiUri = 'digiserver.herokuapp.com/'; 
 export default function withAuth(AuthComponent) {
@@ -14,24 +13,24 @@ export default function withAuth(AuthComponent) {
                 super();
                 this.state = {
                     user: null
-                }
+                };
             }
         
             componentWillMount() {
                 if (!Auth.loggedIn()) {
-                    this.props.route.history.replace('/login')
+                    this.props.route.history.replace('/login');
                 }
                 else {
                     try {
-                        const profile = Auth.getProfile()
+                        const profile = Auth.getProfile();
                         this.setState({
                             user: profile
                         })
                     }
                     catch(err){
-                        Auth.logout()
-                        console.log(this.props)
-                        this.props.route.history.replace('/login')
+                        Auth.logout();
+                        console.log(this.props);
+                        this.props.route.history.replace('/login');
                     }
                 }
             }
