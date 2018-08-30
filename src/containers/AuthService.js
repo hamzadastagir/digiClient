@@ -1,8 +1,9 @@
 import decode from 'jwt-decode';
+const baseApiUri = 'digiserver.herokuapp.com/';
 export default class AuthService {
     // Initializing important variables
     constructor(domain) {
-        this.domain = domain || 'http://localhost:8080/api/account' // API server domain
+        this.domain = domain || baseApiUri+'api/account' // API server domain
         this.fetch = this.fetch.bind(this) // React binding stuff
         this.login = this.login.bind(this)
         this.getProfile = this.getProfile.bind(this)

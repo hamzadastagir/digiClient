@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Router, browserHistory, history } from 'react-router';
 import AuthService from './AuthService';
-
+const baseApiUri = 'digiserver.herokuapp.com/'; 
 export default function withAuth(AuthComponent) {
     // Code here now
     
 
-    const Auth = new AuthService('http://localhost:8080/api/account');
+    const Auth = new AuthService( baseApiUri+'api/account');
     return class AuthWrapped extends Component {
             // Code here now
 

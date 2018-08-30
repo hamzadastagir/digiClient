@@ -11,7 +11,7 @@ import BrowserUsage from '../components/dashboard/BrowserUsage';
 import RecentlyProducts from '../components/dashboard/RecentlyProducts';
 import globalStyles from '../styles';
 import Data from '../data';
-
+const baseApiUri = 'digiserver.herokuapp.com/';
 class DashboardPage extends React.Component {
   constructor(props){
       super(props);
@@ -43,7 +43,7 @@ class DashboardPage extends React.Component {
   
   fetchUsers() {
 		console.log('fetchProfileStockInfo');
-		fetch('http://localhost:8080/api/users/', { method: 'GET' })
+		fetch(baseApiUri+'api/users/', { method: 'GET' })
 		.then(res => res.json())
 		.then(json => {
 			if(json.success) {
@@ -64,7 +64,7 @@ class DashboardPage extends React.Component {
   
   fetchWorkshops() {
 		console.log('fetchProfileStockInfo');
-		fetch('http://localhost:8080/api/workshops/', { method: 'GET' })
+		fetch(baseApiUri+'api/workshops/', { method: 'GET' })
 		.then(res => res.json())
 		.then(json => {
 			if(json.success) {
@@ -86,7 +86,7 @@ class DashboardPage extends React.Component {
   
   fetchGenres() {
 		console.log('fetchProfileStockInfo');
-		fetch('http://localhost:8080/api/genres/', { method: 'GET' })
+		fetch(baseApiUri+'api/genres/', { method: 'GET' })
 		.then(res => res.json())
 		.then(json => {
 			if(json.success) {
