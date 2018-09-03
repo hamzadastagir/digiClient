@@ -44,14 +44,14 @@ const styles = {
   }
 };
 
-const TablePage = () => {
+const WorkshopList = () => {
 
   return (
     <PageBase title="Workshops"
               navigation="Application / Table Page">
 
       <div>
-        <Link to="/form" >
+        <Link to="/create" >
           <FloatingActionButton style={styles.floatingActionButton} backgroundColor={pink500}>
             <ContentAdd />
           </FloatingActionButton>
@@ -94,4 +94,4 @@ const TablePage = () => {
   );
 };
 
-export default TablePage;
+export default WorkshopList;
