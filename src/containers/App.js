@@ -1,20 +1,11 @@
 
 import React, { Component, PropTypes } from 'react';
-//import {browserHistory} from 'react-router'
-//import { Route, IndexRoute } from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from '../components/Header';
 import LeftDrawer from '../components/LeftDrawer';
 import withWidth, {LARGE, SMALL} from 'material-ui/utils/withWidth';
 import ThemeDefault from '../theme-default';
 import Data from '../data';
-
-
-
-//import AuthService from './AuthService';
-//import withAuth from './withAuth';
-//const Auth = new AuthService();
-
 
 class App extends Component {
 
