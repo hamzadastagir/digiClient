@@ -7,12 +7,12 @@ import {
 } from '../constants';
 
 // Get current profile
-export const getCurrentProfile = () => dispatch => {
+export const createWorkshop = () => dispatch => {
   dispatch({
     type: CREATE_WORKSHOP_REQUEST,
   });
   axios
-    .get('/api/profile')
+    .get('/api/workshops/new')
     .then(res =>
       dispatch({
         type: CREATE_WORKSHOP_SUCCESS,
