@@ -11,22 +11,22 @@ export function createWorkshop(body) {
       type: CREATE_WORKSHOP_REQUEST,
     });
     fetch(`${baseApiUrl}/api/workshops/new`,{
-        method: 'POST',
-        body: body,
-      }
-    )
-      .then(res => {
-        dispatch({
-          type: CREATE_WORKSHOP_SUCCESS,
-          payload: res.data
-        });
-      })
-      .catch(error => {
-        dispatch({
-          type: CREATE_WORKSHOP_FAILED,
-          payload: error.message
-        });
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ body }),
+    }).then(res => {
+      dispatch({
+        type: CREATE_WORKSHOP_SUCCESS,
+        payload: res.data
       });
+    }).catch(error => {
+      dispatch({
+        type: CREATE_WORKSHOP_FAILED,
+        payload: error.message
+      });
+    });
   };
 }
 

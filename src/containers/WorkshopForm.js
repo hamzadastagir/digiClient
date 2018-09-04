@@ -189,7 +189,7 @@ export class WorkshopForm extends React.Component {
 
 function mapDispatchToProps(dispatch){
   return {
-    onClickSubmit: (values) =>  dispatch(createWorkshop({...values, genreId: 2})),
+    onClickSubmit: (values) =>  dispatch(createWorkshop({...values, genreId: 3})),
   };
 }
 
