@@ -1,1 +1,1 @@
-export const baseApiUrl = 'digiserver.herokuapp.com/';
+export const baseApiUrl = 'https://digiserver.herokuapp.com';

@@ -1,13 +1,14 @@
-import React, {PropTypes} from 'react';
-import { connect } from 'react-redux';
+/* eslint-disable react/prop-types */
+import React from 'react';
+import {connect} from "react-redux";
 import {Link} from 'react-router';
 import Paper from "@material-ui/core/Paper/Paper";
-import { RaisedButton, TextField } from 'material-ui';
+import { RaisedButton } from 'material-ui';
 import PageBase from '../components/PageBase';
 
 import {grey400} from 'material-ui/styles/colors';
 import {createWorkshop} from "../store/actions/workshop";
-import Header from "../components/Header";
+import InputField from "../components/InputField";
 
 const styles = {
   formContainer: {
@@ -35,14 +36,9 @@ const styles = {
   saveButton: {
     marginLeft: 5
   },
-  inputField: {
-    marginLeft: 10,
-    width: '40%',
-    marginRight: 20,
-  }
 };
 
-class WorkshopForm extends React.Component {
+export class WorkshopForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,8 +66,8 @@ class WorkshopForm extends React.Component {
 
   handleFormSubmit() {
     const values = {...this.state};
-    const { onSubmit } = this.props;
-    () => onSubmit(values);
+    const { onClickSubmit } = this.props;
+    onClickSubmit(values);
   }
 
   render() {
@@ -83,79 +79,16 @@ class WorkshopForm extends React.Component {
 
         <Paper style={styles.root} elevation={1}>
           <form style={styles.formContainer}>
-            <TextField
-              name={'title'}
-              label="Title"
-              floatingLabelText="Title"
-              style={styles.inputField}
-              onChange={this.handleChange}
-            />
-            <TextField
-              name={'description'}
-              label="Description"
-              floatingLabelText="Description"
-              tyep={'text'}
-              style={styles.inputField}
-              onChange={this.handleChange}
-            />
-            <TextField
-              name={'content'}
-              label="Content"
-              floatingLabelText="Content"
-              style={styles.inputField}
-              onChange={this.handleChange}
-            />
-            <TextField
-              name={'venue'}
-              label="Venue"
-              floatingLabelText="Venue"
-              tyep={'text'}
-              style={styles.inputField}
-              onChange={this.handleChange}
-            />
-            <TextField
-              neme={'speaker'}
-              label="Speaker"
-              floatingLabelText="Speaker"
-              tyep={'text'}
-              style={styles.inputField}
-              onChange={this.handleChange}
-            />
-            <TextField
-              neme={'videoLink'}
-              label="Video Link"
-              floatingLabelText="Video Link"
-              style={styles.inputField}
-              onChange={this.handleChange}
-            />
-            <TextField
-              neme={'dateOrganizing'}
-              label="Date Organizing"
-              floatingLabelText="Date Organizing"
-              style={styles.inputField}
-              onChange={this.handleChange}
-            />
-            <TextField
-              neme={'rating'}
-              label="Rating"
-              floatingLabelText="Rating"
-              style={styles.inputField}
-              onChange={this.handleChange}
-            />
-            <TextField
-              neme={'timesRated'}
-              label="Times Rated"
-              floatingLabelText="Times Rated"
-              style={styles.inputField}
-              onChange={this.handleChange}
-            />
-            <TextField
-              neme={'starsTotal'}
-              label="Stars Total"
-              floatingLabelText="Stars Total"
-              style={{...styles.inputField, marginBottom: 20 }}
-              onChange={this.handleChange}
-            />
+            <InputField name={'title'} multiLine={'false'} floatingLabelText="Title" handleChange={this.handleChange}/>
+            <InputField name={'description'} multiLine={'true'} floatingLabelText="Description" handleChange={this.handleChange}/>
+            <InputField name={'content'} multiLine={'false'} floatingLabelText="Content" handleChange={this.handleChange}/>
+            <InputField name={'venue'} multiLine={'false'} floatingLabelText="Venue" handleChange={this.handleChange}/>
+            <InputField name={'speaker'} multiLine={'false'} floatingLabelText="Speaker" handleChange={this.handleChange}/>
+            <InputField name={'videoLink'} multiLine={'false'} floatingLabelText="Video Link" handleChange={this.handleChange}/>
+            <InputField name={'dateOrganizing'} multiLine={'false'} floatingLabelText="Date Organizing" handleChange={this.handleChange}/>
+            <InputField name={'rating'} multiLine={'false'} floatingLabelText="Rating" handleChange={this.handleChange}/>
+            <InputField name={'timesRated'} multiLine={'false'} floatingLabelText="Times Rated" handleChange={this.handleChange}/>
+            <InputField name={'starsTotal'} multiLine={'false'} floatingLabelText="Stars Total" handleChange={this.handleChange}/>
 
             <div style={styles.buttons}>
               <Link to="/">
@@ -176,15 +109,13 @@ class WorkshopForm extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+function mapDispatchToProps(dispatch){
   return {
-    onSubmit: (values) => {
-      dispatch(createWorkshop(values));
-    }
+    onClickSubmit: (values) =>  dispatch(createWorkshop({...values, genreId: 2})),
   };
-};
+}
 
-const mapStateToProps = state => {
+function mapStateToProps(state){
   const { workshopReducer } = state;
 
   return {
@@ -192,11 +123,7 @@ const mapStateToProps = state => {
     loading: workshopReducer.loading,
     success: workshopReducer.success,
   };
-};
-
-Header.propTypes = {
-  onSubmit: PropTypes.func.isRequire
-};
+}
 
 export default connect(
   mapStateToProps,
