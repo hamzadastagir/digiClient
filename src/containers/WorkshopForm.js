@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router';
 import Paper from "@material-ui/core/Paper/Paper";
@@ -7,7 +7,7 @@ import PageBase from '../components/PageBase';
 
 import {grey400} from 'material-ui/styles/colors';
 import {createWorkshop} from "../store/actions/workshop";
-import workshopReducer from "../store/reducers/workshopReducer";
+import Header from "../components/Header";
 
 const styles = {
   formContainer: {
@@ -70,7 +70,8 @@ class WorkshopForm extends React.Component {
 
   handleFormSubmit() {
     const values = {...this.state};
-    this.props.onSubmit(values);
+    const { onSubmit } = this.props;
+    () => onSubmit(values);
   }
 
   render() {
@@ -184,12 +185,17 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = state => {
-  const { workshopReducer } = state
+  const { workshopReducer } = state;
+
   return {
     workshop: workshopReducer.workshop,
     loading: workshopReducer.loading,
     success: workshopReducer.success,
   };
+};
+
+Header.propTypes = {
+  onSubmit: PropTypes.func.isRequire
 };
 
 export default connect(
