@@ -17,8 +17,8 @@ const styles = {
     width: '85%',
   },
   root: {
-    paddingTop: 4 * 2,
-    paddingBottom: 4 * 2,
+    padding: 50,
+    margin: 40,
   },
   toggleDiv: {
     maxWidth: 300,
@@ -36,29 +36,106 @@ const styles = {
   saveButton: {
     marginLeft: 5
   },
+  titleText: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: '20%'
+  }
 };
 
 export class WorkshopForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      description: '',
-      content: '',
-      venue: '',
-      speaker: '',
-      videoLink: '',
-      dateOrganizing: '',
-      rating: '',
-      starsTotal: '',
-      timesRated: '',
+      title: 'test',
+      description: 'test',
+      content: 'test',
+      venue: 'test',
+      speaker: 'test',
+      videoLink: 'test',
+      dateOrganizing: 'test',
+      rating: 'test',
+      starsTotal: 'test',
+      timesRated: 'test',
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleTitle = this.handleTitle.bind(this);
+    this.handleContent = this.handleContent.bind(this);
+    this.handleVenue = this.handleVenue.bind(this);
+    this.handleSpeaker = this.handleSpeaker.bind(this);
+    this.handleVideoLink = this.handleVideoLink.bind(this);
+    this.handleDateOrg = this.handleDateOrg.bind(this);
+    this.handleRating = this.handleRating.bind(this);
+    this.handleTimeRated = this.handleTimeRated.bind(this);
+    this.handleStars = this.handleStars.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
+  handleTitle(event) {
+    this.setState({
+      title: event.target.value
+    });
+  }
+
   handleChange(event) {
+    console.log(event);
+    this.setState({
+      description: event.target.value
+    });
+  }
+
+  handleContent(event) {
+    console.log(event);
+    this.setState({
+      content: event.target.value
+    });
+  }
+
+  handleVenue(event) {
+    console.log(event);
+    this.setState({
+      venue: event.target.value
+    });
+  }
+
+  handleSpeaker(event) {
+    console.log(event);
+    this.setState({
+      speaker: event.target.value
+    });
+  }
+
+  handleVideoLink(event) {
+    console.log(event);
+    this.setState({
+      videoLink: event.target.value
+    });
+  }
+
+  handleDateOrg(event) {
+    console.log(event);
+    this.setState({
+      dateOrganization: event.target.value
+    });
+  }
+
+  handleRating(event) {
+    console.log(event);
+    this.setState({
+      rating: event.target.value
+    });
+  }
+
+  handleTimeRated(event) {
+    console.log(event);
+    this.setState({
+      timesRated: event.target.value
+    });
+  }
+
+  handleStars(event) {
+    console.log(event);
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -73,22 +150,23 @@ export class WorkshopForm extends React.Component {
   render() {
     return (
       <PageBase
-        title="Profile info"
-        navigation="Application / Form Page"
+        title="Workshop Details"
+        navigation="Dashboard / Workshop"
       >
 
         <Paper style={styles.root} elevation={1}>
+          <h1 style={styles.titleText}>WORKSHOP DETAILS</h1>
           <form style={styles.formContainer}>
-            <InputField name={'title'} multiLine={'false'} floatingLabelText="Title" handleChange={this.handleChange}/>
-            <InputField name={'description'} multiLine={'true'} floatingLabelText="Description" handleChange={this.handleChange}/>
-            <InputField name={'content'} multiLine={'false'} floatingLabelText="Content" handleChange={this.handleChange}/>
-            <InputField name={'venue'} multiLine={'false'} floatingLabelText="Venue" handleChange={this.handleChange}/>
-            <InputField name={'speaker'} multiLine={'false'} floatingLabelText="Speaker" handleChange={this.handleChange}/>
-            <InputField name={'videoLink'} multiLine={'false'} floatingLabelText="Video Link" handleChange={this.handleChange}/>
-            <InputField name={'dateOrganizing'} multiLine={'false'} floatingLabelText="Date Organizing" handleChange={this.handleChange}/>
-            <InputField name={'rating'} multiLine={'false'} floatingLabelText="Rating" handleChange={this.handleChange}/>
-            <InputField name={'timesRated'} multiLine={'false'} floatingLabelText="Times Rated" handleChange={this.handleChange}/>
-            <InputField name={'starsTotal'} multiLine={'false'} floatingLabelText="Stars Total" handleChange={this.handleChange}/>
+            <InputField name='title' multiLine={'false'} floatingLabelText="Title" handleChange={this.handleTitle}/>
+            <InputField name='description' multiLine={'true'} floatingLabelText="Description" handleChange={this.handleChange}/>
+            <InputField name='content' multiLine={'false'} floatingLabelText="Content" handleChange={this.handleContent}/>
+            <InputField name='venue' multiLine={'false'} floatingLabelText="Venue" handleChange={this.handleVenue}/>
+            <InputField name='speaker' multiLine={'false'} floatingLabelText="Speaker" handleChange={this.handleSpeaker}/>
+            <InputField name='videoLink' multiLine={'false'} floatingLabelText="Video Link" handleChange={this.handleVideoLink}/>
+            <InputField name='dateOrganizing' multiLine={'false'} floatingLabelText="Date Organizing" handleChange={this.handleDateOrg}/>
+            <InputField name='rating' multiLine={'false'} floatingLabelText="Rating" handleChange={this.handleRating}/>
+            <InputField name='timesRated' multiLine={'false'} floatingLabelText="Times Rated" handleChange={this.handleTimeRated}/>
+            <InputField name='starsTotal' multiLine={'false'} floatingLabelText="Stars Total" handleChange={this.handleStars}/>
 
             <div style={styles.buttons}>
               <Link to="/">
