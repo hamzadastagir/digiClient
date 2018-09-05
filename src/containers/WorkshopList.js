@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
+import {connect} from "react-redux";
 import {Link} from 'react-router';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -7,7 +9,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import Paper from '@material-ui/core/Paper';
 import {pink500, grey200, grey500} from 'material-ui/styles/colors';
 import PageBase from '../components/PageBase';
-import Data from '../data';
+import { fetchWorkshops } from "../store/actions/workshop";
 
 const styles = {
   root: {
@@ -25,73 +27,99 @@ const styles = {
   editButton: {
     fill: grey500
   },
-  columns: {
-    id: {
-      width: '10%'
-    },
-    name: {
-      width: '40%'
-    },
-    price: {
-      width: '20%'
-    },
-    category: {
-      width: '20%'
-    },
-    edit: {
-      width: '10%'
-    }
+};
+
+class WorkshopList extends React.Component {
+  componentWillMount() {
+    const { fetchData } = this.props;
+    fetchData();
   }
-};
-
-const WorkshopList = () => {
-
-  return (
-    <PageBase title="Workshops"
-              navigation="Application / Table Page">
-
-      <div>
-        <Link to="/create" >
-          <FloatingActionButton style={styles.floatingActionButton} backgroundColor={pink500}>
-            <ContentAdd />
-          </FloatingActionButton>
-        </Link>
-        <Paper style={styles.root} elevation={1}>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHeaderColumn style={styles.columns.id}>ID</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.name}>Name</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.rsvp}>Rsvp</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.category}>Category</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.edit}>Edit</TableHeaderColumn>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {Data.tablePage.items.map(item =>
-                <TableRow key={item.id}>
-                  <TableRowColumn style={styles.columns.id}>{item.id}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.name}>{item.name}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.rsvp}>{item.rsvp}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.category}>{item.category}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.edit}>
-                    <Link className="button" to="/form">
-                      <FloatingActionButton zDepth={0}
-                                            mini={true}
-                                            backgroundColor={grey200}
-                                            iconStyle={styles.editButton}>
-                        <ContentCreate  />
-                      </FloatingActionButton>
-                    </Link>
-                  </TableRowColumn>
+  render() {
+    const { data } = this.props;
+    console.log(data)
+    return (
+      <PageBase
+        title="Workshops"
+        navigation="Application / Table Page"
+      >
+        <div>
+          <Link to="/create" >
+            <FloatingActionButton style={styles.floatingActionButton} backgroundColor={pink500}>
+              <ContentAdd />
+            </FloatingActionButton>
+          </Link>
+          <Paper style={styles.root} elevation={1}>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHeaderColumn>Title</TableHeaderColumn>
+                  <TableHeaderColumn>Description</TableHeaderColumn>
+                  <TableHeaderColumn>Content</TableHeaderColumn>
+                  <TableHeaderColumn>Venue</TableHeaderColumn>
+                  <TableHeaderColumn>Speaker</TableHeaderColumn>
+                  <TableHeaderColumn>Video Link</TableHeaderColumn>
+                  <TableHeaderColumn>Date Organizing</TableHeaderColumn>
+                  <TableHeaderColumn>Rating</TableHeaderColumn>
+                  <TableHeaderColumn>Tatal Stars</TableHeaderColumn>
+                  <TableHeaderColumn>Times Rated</TableHeaderColumn>
+                  <TableHeaderColumn> Edit</TableHeaderColumn>
                 </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </Paper>
-      </div>
-    </PageBase>
-  );
-};
+              </TableHeader>
+              <TableBody>
+                {data && data.map(item =>
+                  <TableRow key={item._id}>
+                    <TableRowColumn>{item.title}</TableRowColumn>
+                    <TableRowColumn>{item.description}</TableRowColumn>
+                    <TableRowColumn>{item.content}</TableRowColumn>
+                    <TableRowColumn>{item.venue}</TableRowColumn>
+                    <TableRowColumn>{item.speaker}</TableRowColumn>
+                    <TableRowColumn>{item.videoLink}</TableRowColumn>
+                    <TableRowColumn>{item.dateOrganizing}</TableRowColumn>
+                    <TableRowColumn>{item.rating}</TableRowColumn>
+                    <TableRowColumn>{item.starsTotal}</TableRowColumn>
+                    <TableRowColumn>{item.timesRated}</TableRowColumn>
+                    <TableRowColumn>
+                      <Link className="button" to="/create">
+                        <FloatingActionButton
+                          zDepth={0}
+                          mini={true}
+                          backgroundColor={grey200}
+                          iconStyle={styles.editButton}
+                        >
+                          <ContentCreate  />
+                        </FloatingActionButton>
+                      </Link>
+                    </TableRowColumn>
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </Paper>
+        </div>
+      </PageBase>
+    );
+  }
+}
 
-export default WorkshopList;
+function mapDispatchToProps(dispatch){
+  return {
+    fetchData: () =>  dispatch(fetchWorkshops()),
+  };
+}
+
+function mapStateToProps(state){
+  const { workshopReducer } = state;
+  console.log(workshopReducer);
+
+  return {
+    data: workshopReducer.get('data'),
+    loading: workshopReducer.loading,
+    success: workshopReducer.success,
+  };
+}
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WorkshopList);
