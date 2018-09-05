@@ -13,7 +13,8 @@ export function createWorkshop(body) {
     fetch(`${baseApiUrl}/api/workshops/new`,{
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Accept: 'www-xmlencoded'
       },
       body: JSON.stringify({ body }),
     }).then(res => {

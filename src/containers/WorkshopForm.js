@@ -137,7 +137,7 @@ export class WorkshopForm extends React.Component {
   handleStars(event) {
     console.log(event);
     this.setState({
-      [event.target.name]: event.target.value
+      starsTotal: event.target.value
     });
   }
 
