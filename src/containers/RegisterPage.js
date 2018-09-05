@@ -78,19 +78,9 @@ class RegisterPage extends React.Component {
   constructor(props){
       super(props);
      
-      //this.Auth = new AuthService();
       this.handleChange = this.handleChange.bind(this);
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
 
-  }
-
-  componentWillMount(){
-        
-    // if(this.Auth.loggedIn()){
-    //     //this.props.route.history.replace("/");
-    // }
-
-        
   }
 
   handleFormSubmit(e){
@@ -110,7 +100,7 @@ class RegisterPage extends React.Component {
           {
               [e.target.name]: e.target.value
           }
-      )
+      );
   }
 
   render (){
@@ -158,7 +148,7 @@ class RegisterPage extends React.Component {
           </div>
         </div>
       </MuiThemeProvider>
-    )
+    );
 
   }
 }

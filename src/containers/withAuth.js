@@ -1,14 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import AuthService from './AuthService';
-const baseApiUri = 'digiserver.herokuapp.com/'; 
-export default function withAuth(AuthComponent) {
-    // Code here now
-    
+const baseApiUri = 'digiserver.herokuapp.com/';
 
+export default function withAuth(AuthComponent) {
     const Auth = new AuthService( baseApiUri+'api/account');
     return class AuthWrapped extends Component {
-            // Code here now
-
             constructor() {
                 super();
                 this.state = {
@@ -25,11 +22,10 @@ export default function withAuth(AuthComponent) {
                         const profile = Auth.getProfile();
                         this.setState({
                             user: profile
-                        })
+                        });
                     }
                     catch(err){
                         Auth.logout();
-                        console.log(this.props);
                         this.props.route.history.replace('/login');
                     }
                 }
@@ -39,10 +35,10 @@ export default function withAuth(AuthComponent) {
                 if (this.state.user) {
                     return (
                         <AuthComponent history={this.props.history} user={this.state.user} />
-                    )
+                    );
                 }
                 else {
-                    return null
+                    return null;
                 }
             }
     };

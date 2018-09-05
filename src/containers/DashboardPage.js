@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import {cyan600, pink600, purple600, orange600} from 'material-ui/styles/colors';
 import Assessment from 'material-ui/svg-icons/action/assessment';
@@ -5,9 +6,7 @@ import Face from 'material-ui/svg-icons/action/face';
 import ThumbUp from 'material-ui/svg-icons/action/thumb-up';
 import ShoppingCart from 'material-ui/svg-icons/action/shopping-cart';
 import InfoBox from '../components/dashboard/InfoBox';
-//import NewOrders from '../components/dashboard/NewOrders';
 import MonthlySales from '../components/dashboard/MonthlySales';
-//import BrowserUsage from '../components/dashboard/BrowserUsage';
 import RecentlyProducts from '../components/dashboard/RecentlyProducts';
 import globalStyles from '../styles';
 import Data from '../data';
@@ -19,9 +18,6 @@ class DashboardPage extends React.Component {
       this.state = {
         isLoading: true,
         error: null,
-        // symbol: '',
-        // lastRefreshed: '',
-        // timezone: '',
         results: [],  
         users: [],
         rsvps: [],
@@ -58,7 +54,6 @@ class DashboardPage extends React.Component {
 				});
 			}
 		});
-		
   }
   
   fetchWorkshops() {
@@ -71,7 +66,6 @@ class DashboardPage extends React.Component {
 					workshops: json.result
 
         });
-        console.log(json.result)
 			}else {
 				this.setState({
 					isLoading: false,
@@ -79,7 +73,6 @@ class DashboardPage extends React.Component {
 				});
 			}
 		});
-		
   }
   
   fetchGenres() {
@@ -92,7 +85,6 @@ class DashboardPage extends React.Component {
 					genres: json.result
 
         });
-        console.log(json.result)
 			}else {
 				this.setState({
 					isLoading: false,
@@ -100,29 +92,15 @@ class DashboardPage extends React.Component {
 				});
 			}
 		});
-		
 	}
 
   render(){
     const {
-			//error,
-			//isLoading,
-			// symbol,
-			// lastRefreshed,
-			// timezone,
-      //results,
       users,
       workshops,
-      //rsvps,
       genres,
 
     } = this.state;
-    console.log('workshops', workshops)
-    console.log('genres', genres)
-    {/* <div>
-				<p>Profile</p>
-				{results.map(result => <StockInfo data={result} />)}
-		</div> */}
 
     return (
       <div>
@@ -137,8 +115,7 @@ class DashboardPage extends React.Component {
                      value="12"
             />
           </div>
-  
-  
+
           <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 ">
             <InfoBox Icon={ThumbUp}
                      color={cyan600}
@@ -188,14 +165,10 @@ class DashboardPage extends React.Component {
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-15 ">
             <RecentlyProducts data={Data.dashBoardPage.recentProducts}/>
           </div>
-  
-          
         </div>
       </div>
     );
   }
-
-  
 }
 
 export default DashboardPage;

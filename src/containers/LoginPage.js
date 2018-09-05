@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars,react/prop-types */
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -6,13 +8,12 @@ import FlatButton from 'material-ui/FlatButton';
 import Checkbox from 'material-ui/Checkbox';
 import {grey500, white} from 'material-ui/styles/colors';
 import PersonAdd from 'material-ui/svg-icons/social/person-add';
-//import Help from 'material-ui/svg-icons/action/help';
 import TextField from 'material-ui/TextField';
 import {Link} from 'react-router';
 import ThemeDefault from '../theme-default';
 
 import AuthService from './AuthService';
-//const Auth = new AuthService();
+import Dashboard from './DashboardPage';
 
 
 const styles = {
@@ -100,11 +101,10 @@ class LoginPage extends React.Component {
     this.Auth.login(this.state.email,this.state.password)
         .then(response => {
             this.props.route.history.replace('/');
-            console.log(response);
     })
         .catch(err =>{
             alert(err);
-        })
+        });
   }
 
 
@@ -113,17 +113,15 @@ class LoginPage extends React.Component {
           {
               [e.target.name]: e.target.value
           }
-      )
+      );
   }
 
-render (){
+render () {
   return (
     <MuiThemeProvider muiTheme={ThemeDefault}>
       <div>
         <div style={styles.loginContainer}>
-
           <Paper style={styles.paper}>
-
             <form onSubmit={this.handleFormSubmit}>
               <TextField
                 hintText="E-mail"
@@ -150,11 +148,12 @@ render (){
                 />
 
                 <Link to="">
-                  <RaisedButton label="Login"
-                                primary={true}
-                                style={styles.loginBtn}
-                                onClick={this.handleFormSubmit}
-                                />
+                  <RaisedButton
+                    label="Login"
+                    primary={true}
+                    style={styles.loginBtn}
+                    onClick={this.handleFormSubmit}
+                  />
                 </Link>
               </div>
             </form>
@@ -167,16 +166,11 @@ render (){
               style={styles.flatButton}
               icon={<PersonAdd />}
             />
-
-            
           </div>
-
-       
         </div>
       </div>
     </MuiThemeProvider>
-  )
-
+  );
 }
 }
   

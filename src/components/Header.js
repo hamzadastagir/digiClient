@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import AuthService from '../containers/AuthService';
-//import withAuth from '../containers/withAuth';
 const Auth = new AuthService();
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
@@ -22,9 +22,7 @@ class Header extends React.Component {
   }
   
   handleLogout(){
-    console.log(Auth.logout())
-    Auth.logout()
-    console.log(this.props)
+    Auth.logout();
     this.props.route.history.replace('/login');
   }
   render() {
@@ -93,4 +91,3 @@ Header.propTypes = {
 
 export default Header;
 
-//containerElement={<Link to="/login"/>}

@@ -10,11 +10,11 @@ import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 
 const data = {
   menus: [
-    { text: 'DashBoard', icon: <Assessment/>, link: '/dashboard' },
-    { text: 'Register', icon: <Web/>, link: '/form' },
-    { text: 'Workshop', icon: <GridOn/>, link: '/table' },
-    { text: 'Login Page', icon: <PermIdentity/>, link: '/login' },
-    { text: 'New User', icon: <PermIdentity/>, link: '/register' }
+    { text: 'Dashboard', icon: <Assessment/>, link: '/dashboard' },
+    { text: 'Create Workshop', icon: <Web/>, link: '/create' },
+    { text: 'Workshops', icon: <GridOn/>, link: '/workshops' },
+    { text: 'Login ', icon: <PermIdentity/>, link: '/login' },
+    { text: 'Sign-Up', icon: <PermIdentity/>, link: '/register' }
   ],
   tablePage: {
     items: [
