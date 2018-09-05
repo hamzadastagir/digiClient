@@ -14,7 +14,7 @@ export function createWorkshop(body) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Accept: 'www-xmlencoded'
+        Accept: 'application/json'
       },
       body: JSON.stringify(body),
     }).then(res => {

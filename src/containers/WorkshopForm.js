@@ -31,7 +31,7 @@ const styles = {
   },
   buttons: {
     marginTop: 50,
-    float: 'right'
+    marginLeft: '35%'
   },
   saveButton: {
     marginLeft: 5
