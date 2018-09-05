@@ -16,7 +16,7 @@ export function createWorkshop(body) {
         'Content-Type': 'application/json',
         Accept: 'www-xmlencoded'
       },
-      body: JSON.stringify({ body }),
+      body: JSON.stringify(body),
     }).then(res => {
       dispatch({
         type: CREATE_WORKSHOP_SUCCESS,

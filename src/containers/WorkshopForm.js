@@ -79,7 +79,6 @@ export class WorkshopForm extends React.Component {
   }
 
   handleChange(event) {
-    console.log(event);
     this.setState({
       description: event.target.value
     });
@@ -93,49 +92,42 @@ export class WorkshopForm extends React.Component {
   }
 
   handleVenue(event) {
-    console.log(event);
     this.setState({
       venue: event.target.value
     });
   }
 
   handleSpeaker(event) {
-    console.log(event);
     this.setState({
       speaker: event.target.value
     });
   }
 
   handleVideoLink(event) {
-    console.log(event);
     this.setState({
       videoLink: event.target.value
     });
   }
 
   handleDateOrg(event) {
-    console.log(event);
     this.setState({
-      dateOrganization: event.target.value
+      dateOrganizing: event.target.value
     });
   }
 
   handleRating(event) {
-    console.log(event);
     this.setState({
       rating: event.target.value
     });
   }
 
   handleTimeRated(event) {
-    console.log(event);
     this.setState({
       timesRated: event.target.value
     });
   }
 
   handleStars(event) {
-    console.log(event);
     this.setState({
       starsTotal: event.target.value
     });
@@ -157,16 +149,16 @@ export class WorkshopForm extends React.Component {
         <Paper style={styles.root} elevation={1}>
           <h1 style={styles.titleText}>WORKSHOP DETAILS</h1>
           <form style={styles.formContainer}>
-            <InputField name='title' multiLine={'false'} floatingLabelText="Title" handleChange={this.handleTitle}/>
-            <InputField name='description' multiLine={'true'} floatingLabelText="Description" handleChange={this.handleChange}/>
-            <InputField name='content' multiLine={'false'} floatingLabelText="Content" handleChange={this.handleContent}/>
-            <InputField name='venue' multiLine={'false'} floatingLabelText="Venue" handleChange={this.handleVenue}/>
-            <InputField name='speaker' multiLine={'false'} floatingLabelText="Speaker" handleChange={this.handleSpeaker}/>
-            <InputField name='videoLink' multiLine={'false'} floatingLabelText="Video Link" handleChange={this.handleVideoLink}/>
-            <InputField name='dateOrganizing' multiLine={'false'} floatingLabelText="Date Organizing" handleChange={this.handleDateOrg}/>
-            <InputField name='rating' multiLine={'false'} floatingLabelText="Rating" handleChange={this.handleRating}/>
-            <InputField name='timesRated' multiLine={'false'} floatingLabelText="Times Rated" handleChange={this.handleTimeRated}/>
-            <InputField name='starsTotal' multiLine={'false'} floatingLabelText="Stars Total" handleChange={this.handleStars}/>
+            <InputField name="title" multiLine={false} floatingLabelText="Title" handleChange={this.handleTitle}/>
+            <InputField name="description" multiLine={true} floatingLabelText="Description" handleChange={this.handleChange}/>
+            <InputField name="content" multiLine={false} floatingLabelText="Content" handleChange={this.handleContent}/>
+            <InputField name="venue" multiLine={false} floatingLabelText="Venue" handleChange={this.handleVenue}/>
+            <InputField name="speaker" multiLine={false} floatingLabelText="Speaker" handleChange={this.handleSpeaker}/>
+            <InputField name="videoLink" multiLine={false} floatingLabelText="Video Link" handleChange={this.handleVideoLink}/>
+            <InputField name="dateOrganizing" multiLine={false} floatingLabelText="Date Organizing" handleChange={this.handleDateOrg}/>
+            <InputField name="rating" multiLine={false} floatingLabelText="Rating" handleChange={this.handleRating}/>
+            <InputField name="timesRated" multiLine={false} floatingLabelText="Times Rated" handleChange={this.handleTimeRated}/>
+            <InputField name="starsTotal" multiLine={false} floatingLabelText="Stars Total" handleChange={this.handleStars}/>
 
             <div style={styles.buttons}>
               <Link to="/">
@@ -189,7 +181,7 @@ export class WorkshopForm extends React.Component {
 
 function mapDispatchToProps(dispatch){
   return {
-    onClickSubmit: (values) =>  dispatch(createWorkshop({...values, genreId: 3})),
+    onClickSubmit: (values) =>  dispatch(createWorkshop(values)),
   };
 }
 
