@@ -28,8 +28,6 @@ class App extends Component {
     });
   }
 
-  
-
   render() {
     let { navDrawerOpen } = this.state;
     const paddingLeftDrawerOpen = 236;
@@ -54,15 +52,15 @@ class App extends Component {
             handleChangeRequestNavDrawer={this.handleChangeRequestNavDrawer.bind(this)}
           />
 
-            <LeftDrawer
-              navDrawerOpen={navDrawerOpen}
-              menus={Data.menus}
-              username="User Admin"
-            />
-        
-            <div style={styles.container}>
-              {this.props.children}
-            </div>
+          <LeftDrawer
+            navDrawerOpen={navDrawerOpen}
+            menus={Data.menus}
+            username="User Admin"
+          />
+
+          <div style={styles.container}>
+            {this.props.children}
+          </div>
         </div>
 
       </MuiThemeProvider>

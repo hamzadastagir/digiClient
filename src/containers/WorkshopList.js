@@ -36,7 +36,6 @@ class WorkshopList extends React.Component {
   }
   render() {
     const { data } = this.props;
-    console.log(data)
     return (
       <PageBase
         title="Workshops"
@@ -109,7 +108,6 @@ function mapDispatchToProps(dispatch){
 
 function mapStateToProps(state){
   const { workshopReducer } = state;
-  console.log(workshopReducer);
 
   return {
     data: workshopReducer.get('data'),
@@ -117,7 +115,6 @@ function mapStateToProps(state){
     success: workshopReducer.success,
   };
 }
-
 
 export default connect(
   mapStateToProps,

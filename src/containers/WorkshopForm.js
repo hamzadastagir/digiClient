@@ -43,7 +43,7 @@ const styles = {
   }
 };
 
-export class WorkshopForm extends React.Component {
+class WorkshopForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -85,7 +85,6 @@ export class WorkshopForm extends React.Component {
   }
 
   handleContent(event) {
-    console.log(event);
     this.setState({
       content: event.target.value
     });

@@ -10,7 +10,7 @@ const styles = {
   }
 };
 
-export const InputField = ({name, multiLine, floatingLabelText, handleChange }) => {
+const InputField = ({name, multiLine, floatingLabelText, handleChange }) => {
   return (
     <TextField
       neme={name}

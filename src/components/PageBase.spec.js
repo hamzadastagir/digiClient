@@ -8,7 +8,6 @@ describe('<PageBase />', () => {
     const wrapper = shallow(<PageBase navigation="navigation" />);
     const actual = wrapper.find('span').text();
     const expected = 'navigation';
-
     expect(expected).to.equal(actual);
   });
 
@@ -16,7 +15,6 @@ describe('<PageBase />', () => {
     const wrapper = shallow(<PageBase title="title" />);
     const actual = wrapper.find('h3').text();
     const expected = 'title';
-
     expect(expected).to.equal(actual);
   });
 });

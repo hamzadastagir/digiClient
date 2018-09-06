@@ -6,8 +6,6 @@ import MenuItem from 'material-ui/MenuItem';
 import {Link} from 'react-router';
 import Avatar from 'material-ui/Avatar';
 
-
-
 const LeftDrawer = (props) => {
   let { navDrawerOpen } = props;
 
@@ -52,26 +50,28 @@ const LeftDrawer = (props) => {
     <Drawer
       docked={true}
       open={navDrawerOpen}>
-        <div style={styles.logo}>
-          Material Admin
-        </div>
-        <div style={styles.avatar.div}>
-          <Avatar src="http://www.material-ui.com/images/uxceo-128.jpg"
-                  size={50}
-                  style={styles.avatar.icon}/>
-          <span style={styles.avatar.span}>{props.username}</span>
-        </div>
-        <div>
-          {props.menus.map((menu, index) =>
-            <MenuItem
-              key={index}
-              style={styles.menuItem}
-              primaryText={menu.text}
-              leftIcon={menu.icon}
-              containerElement={<Link to={menu.link}/>}
-            />
-          )}
-        </div>
+      <div style={styles.logo}>
+        Material Admin
+      </div>
+      <div style={styles.avatar.div}>
+        <Avatar
+          src="http://www.material-ui.com/images/uxceo-128.jpg"
+          size={50}
+          style={styles.avatar.icon}
+        />
+        <span style={styles.avatar.span}>{props.username}</span>
+      </div>
+      <div>
+        {props.menus.map((menu, index) =>
+          <MenuItem
+            key={index}
+            style={styles.menuItem}
+            primaryText={menu.text}
+            leftIcon={menu.icon}
+            containerElement={<Link to={menu.link}/>}
+          />
+        )}
+      </div>
     </Drawer>
   );
 };

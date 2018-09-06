@@ -2,16 +2,10 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
-//import FlatButton from 'material-ui/FlatButton';
-//import Checkbox from 'material-ui/Checkbox';
 import {grey500, white} from 'material-ui/styles/colors';
-//import PersonAdd from 'material-ui/svg-icons/social/person-add';
-//import Help from 'material-ui/svg-icons/action/help';
 import TextField from 'material-ui/TextField';
 import {Link} from 'react-router';
 import ThemeDefault from '../theme-default';
-
-
 
 const styles = {
   loginContainer: {
@@ -72,14 +66,12 @@ const styles = {
   },
 };
 
-
-
 class RegisterPage extends React.Component {
   constructor(props){
-      super(props);
-     
-      this.handleChange = this.handleChange.bind(this);
-      this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
 
   }
 
@@ -96,11 +88,11 @@ class RegisterPage extends React.Component {
 
 
   handleChange(e){
-      this.setState(
-          {
-              [e.target.name]: e.target.value
-          }
-      );
+    this.setState(
+      {
+        [e.target.name]: e.target.value
+      }
+    );
   }
 
   render (){
@@ -127,31 +119,21 @@ class RegisterPage extends React.Component {
                   name="password"
                   onChange={this.handleChange}
                 />
-
-                <div>
-                  
-
-                  <Link to="">
-                    <RaisedButton label="Register"
-                                  primary={true}
-                                  style={styles.loginBtn}
-                                  onClick={this.handleFormSubmit}
-                                  />
-                  </Link>
-                </div>
+                <Link to="">
+                  <RaisedButton
+                    label="Register"
+                    primary={true}
+                    style={styles.loginBtn}
+                    onClick={this.handleFormSubmit}
+                  />
+                </Link>
               </form>
             </Paper>
-
-            
-
-        
           </div>
         </div>
       </MuiThemeProvider>
     );
-
   }
 }
-  
 
 export default RegisterPage;

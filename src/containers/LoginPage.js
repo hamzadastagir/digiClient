@@ -75,104 +75,98 @@ const styles = {
   },
 };
 
-
-
 class LoginPage extends React.Component {
   constructor(props){
-      super(props);
-     
-      this.Auth = new AuthService();
-      this.handleChange = this.handleChange.bind(this);
-      this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    super(props);
 
+    this.Auth = new AuthService();
+    this.handleChange = this.handleChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   componentWillMount(){
-        
-    if(this.Auth.loggedIn()){
-        this.props.route.history.replace("/");
-    }
 
-        
+    if(this.Auth.loggedIn()){
+      this.props.route.history.replace("/");
+    }
   }
 
   handleFormSubmit(e){
     e.preventDefault();
     this.Auth.login(this.state.email,this.state.password)
-        .then(response => {
-            this.props.route.history.replace('/');
-    })
-        .catch(err =>{
-            alert(err);
-        });
+      .then(response => {
+        this.props.route.history.replace('/');
+      })
+      .catch(err =>{
+        alert(err);
+      });
   }
 
 
   handleChange(e){
-      this.setState(
-          {
-              [e.target.name]: e.target.value
-          }
-      );
+    this.setState(
+      {
+        [e.target.name]: e.target.value
+      }
+    );
   }
 
-render () {
-  return (
-    <MuiThemeProvider muiTheme={ThemeDefault}>
-      <div>
-        <div style={styles.loginContainer}>
-          <Paper style={styles.paper}>
-            <form onSubmit={this.handleFormSubmit}>
-              <TextField
-                hintText="E-mail"
-                floatingLabelText="E-mail"
-                fullWidth={true}
-                name="email"
-                onChange={this.handleChange}
-              />
-              <TextField
-                hintText="Password"
-                floatingLabelText="Password"
-                fullWidth={true}
-                type="password"
-                name="password"
-                onChange={this.handleChange}
-              />
-
-              <div>
-                <Checkbox
-                  label="Remember me"
-                  style={styles.checkRemember.style}
-                  labelStyle={styles.checkRemember.labelStyle}
-                  iconStyle={styles.checkRemember.iconStyle}
+  render () {
+    return (
+      <MuiThemeProvider muiTheme={ThemeDefault}>
+        <div>
+          <div style={styles.loginContainer}>
+            <Paper style={styles.paper}>
+              <form onSubmit={this.handleFormSubmit}>
+                <TextField
+                  hintText="E-mail"
+                  floatingLabelText="E-mail"
+                  fullWidth={true}
+                  name="email"
+                  onChange={this.handleChange}
+                />
+                <TextField
+                  hintText="Password"
+                  floatingLabelText="Password"
+                  fullWidth={true}
+                  type="password"
+                  name="password"
+                  onChange={this.handleChange}
                 />
 
-                <Link to="">
-                  <RaisedButton
-                    label="Login"
-                    primary={true}
-                    style={styles.loginBtn}
-                    onClick={this.handleFormSubmit}
+                <div>
+                  <Checkbox
+                    label="Remember me"
+                    style={styles.checkRemember.style}
+                    labelStyle={styles.checkRemember.labelStyle}
+                    iconStyle={styles.checkRemember.iconStyle}
                   />
-                </Link>
-              </div>
-            </form>
-          </Paper>
 
-          <div style={styles.buttonsDiv}>
-            <FlatButton
-              label="Register"
-              href="/register"
-              style={styles.flatButton}
-              icon={<PersonAdd />}
-            />
+                  <Link to="">
+                    <RaisedButton
+                      label="Login"
+                      primary={true}
+                      style={styles.loginBtn}
+                      onClick={this.handleFormSubmit}
+                    />
+                  </Link>
+                </div>
+              </form>
+            </Paper>
+
+            <div style={styles.buttonsDiv}>
+              <FlatButton
+                label="Register"
+                href="/register"
+                style={styles.flatButton}
+                icon={<PersonAdd />}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </MuiThemeProvider>
-  );
+      </MuiThemeProvider>
+    );
+  }
 }
-}
-  
 
 export default LoginPage;

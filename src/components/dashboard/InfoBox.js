@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React, {PropTypes} from 'react';
 import Paper from 'material-ui/Paper';
 import {white, grey800} from 'material-ui/styles/colors';
@@ -62,7 +63,7 @@ InfoBox.propTypes = {
   Icon: PropTypes.any, // eslint-disable-line
   color: PropTypes.string,
   title: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.any,
 };
 
 export default InfoBox;
