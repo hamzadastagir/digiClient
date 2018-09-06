@@ -107,12 +107,12 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state){
-  const { workshopReducer } = state;
+  const { workshop } = state;
 
   return {
-    data: workshopReducer.get('data'),
-    loading: workshopReducer.loading,
-    success: workshopReducer.success,
+    data: workshop.get('data'),
+    loading: workshop.loading,
+    success: workshop.success,
   };
 }
 
