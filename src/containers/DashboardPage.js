@@ -41,30 +41,31 @@ class DashboardPage extends React.Component {
 
   fetchUsers() {
     axios(`${baseApiUrl}/api/users/count`, { method: 'GET' })
-      .then(res => res.json())
-      .then(json => {
-        if(json.success) {
+      .then(res => {
+        if(res.data.success) {
           this.setState({
             isLoading: false,
-            users: json.result
-
-          });
-        }else {
-          this.setState({
-            isLoading: false,
-            error: json.message
+            users: res.data.result
           });
         }
+      })
+      .catch(error => {
+        this.setState({
+          isLoading: false,
+          error: error.message
+        });
       });
   }
 
   fetchWorkshops() {
     axios(`${baseApiUrl}/api/workshops/count`, { method: 'GET' })
       .then(res => {
-        this.setState({
-          isLoading: false,
-          workshops: res.data.result
-        });
+        if(res.data.success) {
+          this.setState({
+            isLoading: false,
+            workshops: res.data.result
+          });
+        }
       }).catch(error => {
       this.setState({
         isLoading: false,
@@ -76,10 +77,12 @@ class DashboardPage extends React.Component {
   fetchGenres() {
     axios(`${baseApiUrl}/api/genres/`, { method: 'GET' })
       .then(res => {
-        this.setState({
-          isLoading: false,
-          genres: res.data.result
-        });
+        if(res.data.success) {
+          this.setState({
+            isLoading: false,
+            genres: res.data.result
+          });
+        }
       }).
     catch(error => {
       this.setState({
