@@ -185,12 +185,12 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state){
-  const { workshopReducer } = state;
+  const { workshop } = state;
 
   return {
-    workshop: workshopReducer.workshop,
-    loading: workshopReducer.loading,
-    success: workshopReducer.success,
+    workshop: workshop.workshop,
+    loading: workshop.loading,
+    success: workshop.success,
   };
 }
 
