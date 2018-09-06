@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
+import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -6,12 +8,13 @@ import {grey500, white} from 'material-ui/styles/colors';
 import TextField from 'material-ui/TextField';
 import {Link} from 'react-router';
 import ThemeDefault from '../theme-default';
+import {createUser} from "../store/actions/user";
 
 const styles = {
   loginContainer: {
-    minWidth: 320,
-    maxWidth: 400,
-    height: 'auto',
+    width: 500,
+    minWidth: 700,
+    maxWidth: 700,
     position: 'absolute',
     top: '20%',
     left: 0,
@@ -19,7 +22,7 @@ const styles = {
     margin: 'auto'
   },
   paper: {
-    padding: 20,
+    padding: 110,
     overflow: 'auto'
   },
   buttonsDiv: {
@@ -33,6 +36,7 @@ const styles = {
     style: {
       float: 'left',
       maxWidth: 180,
+      marginTop: 20,
       paddingTop: 5
     },
     labelStyle: {
@@ -45,6 +49,7 @@ const styles = {
     }
   },
   loginBtn: {
+    marginTop: 20,
     float: 'right'
   },
   btn: {
@@ -69,6 +74,11 @@ const styles = {
 class RegisterPage extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      name: null,
+      email: null,
+      password: null,
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -77,15 +87,10 @@ class RegisterPage extends React.Component {
 
   handleFormSubmit(e){
     e.preventDefault();
-    // this.Auth.login(this.state.email,this.state.password)
-    //     .then(res =>{
-    //         //this.props.route.history.replace('/');
-    //     })
-    //     .catch(err =>{
-    //         alert(err);
-    //     })
+    if(this.state.email && this.state.password) {
+      this.props.onClick({...this.state});
+    }
   }
-
 
   handleChange(e){
     this.setState(
@@ -104,6 +109,13 @@ class RegisterPage extends React.Component {
             <Paper style={styles.paper}>
 
               <form onSubmit={this.handleFormSubmit}>
+                <TextField
+                  hintText="Name"
+                  floatingLabelText="Name"
+                  fullWidth={true}
+                  name="name"
+                  onChange={this.handleChange}
+                />
                 <TextField
                   hintText="E-mail"
                   floatingLabelText="E-mail"
@@ -136,4 +148,22 @@ class RegisterPage extends React.Component {
   }
 }
 
-export default RegisterPage;
+function mapDispatchToProps(dispatch){
+  return {
+    onClick: (values) =>  dispatch(createUser(values)),
+  };
+}
+
+function mapStateToProps(state){
+  const { user } = state;
+
+  return {
+    user: user.get('data'),
+    loading: user.get('loading'),
+    success: user.get('success'),
+  };
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RegisterPage);
