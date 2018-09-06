@@ -18,9 +18,9 @@ import Dashboard from './DashboardPage';
 
 const styles = {
   loginContainer: {
-    minWidth: 320,
-    maxWidth: 400,
-    height: 'auto',
+    width: 500,
+    minWidth: 700,
+    maxWidth: 700,
     position: 'absolute',
     top: '20%',
     left: 0,
@@ -28,7 +28,7 @@ const styles = {
     margin: 'auto'
   },
   paper: {
-    padding: 20,
+    padding: 110,
     overflow: 'auto'
   },
   buttonsDiv: {
@@ -41,6 +41,7 @@ const styles = {
   checkRemember: {
     style: {
       float: 'left',
+      marginTop: 20,
       maxWidth: 180,
       paddingTop: 5
     },
@@ -54,7 +55,8 @@ const styles = {
     }
   },
   loginBtn: {
-    float: 'right'
+    float: 'right',
+    marginTop: 20
   },
   btn: {
     background: '#4f81e9',
@@ -85,7 +87,6 @@ class LoginPage extends React.Component {
   }
 
   componentWillMount(){
-
     if(this.Auth.loggedIn()){
       this.props.route.history.replace("/");
     }
@@ -134,23 +135,21 @@ class LoginPage extends React.Component {
                   onChange={this.handleChange}
                 />
 
-                <div>
-                  <Checkbox
-                    label="Remember me"
-                    style={styles.checkRemember.style}
-                    labelStyle={styles.checkRemember.labelStyle}
-                    iconStyle={styles.checkRemember.iconStyle}
-                  />
+                <Checkbox
+                  label="Remember me"
+                  style={styles.checkRemember.style}
+                  labelStyle={styles.checkRemember.labelStyle}
+                  iconStyle={styles.checkRemember.iconStyle}
+                />
 
-                  <Link to="">
-                    <RaisedButton
-                      label="Login"
-                      primary={true}
-                      style={styles.loginBtn}
-                      onClick={this.handleFormSubmit}
-                    />
-                  </Link>
-                </div>
+                <Link to="">
+                  <RaisedButton
+                    label="Login"
+                    primary={true}
+                    style={styles.loginBtn}
+                    onClick={this.handleFormSubmit}
+                  />
+                </Link>
               </form>
             </Paper>
 
