@@ -5,3 +5,8 @@ export const CREATE_WORKSHOP_FAILED = 'src/store/CREATE_WORKSHOP_FAILED';
 export const GET_WORKSHOP_REQUEST = 'src/store/GET_WORKSHOP_REQUEST';
 export const GET_WORKSHOP_SUCCESS = 'src/store/GET_WORKSHOP_SUCCESS';
 export const GET_WORKSHOP_FAILED = 'src/store/GET_WORKSHOP_FAILED';
+
+// Create constants for Users
+export const CREATE_USER_REQUEST = 'src/store/GET_WORKSHOP_FAILED';
+export const CREATE_USER_SUCCESS = 'src/store/GET_WORKSHOP_FAILED';
+export const CREATE_USER_FAILED = 'src/store/GET_WORKSHOP_FAILED';
