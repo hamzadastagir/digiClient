@@ -60,40 +60,33 @@ class DashboardPage extends React.Component {
 
   fetchWorkshops() {
     axios(`${baseApiUrl}/api/workshops/count`, { method: 'GET' })
-      .then(res => res.json())
-      .then(json => {
-        if(json.success) {
-          this.setState({
-            isLoading: false,
-            workshops: json.result
-
-          });
-        }else {
-          this.setState({
-            isLoading: false,
-            error: json.message
-          });
-        }
+      .then(res => {
+        this.setState({
+          isLoading: false,
+          workshops: res.data.result
+        });
+      }).catch(error => {
+      this.setState({
+        isLoading: false,
+        error: error.message
       });
+    });
   }
 
   fetchGenres() {
     axios(`${baseApiUrl}/api/genres/`, { method: 'GET' })
-      .then(res => res.json())
-      .then(json => {
-        if(json.success) {
-          this.setState({
-            isLoading: false,
-            genres: json.result
-
-          });
-        }else {
-          this.setState({
-            isLoading: false,
-            error: json.message
-          });
-        }
+      .then(res => {
+        this.setState({
+          isLoading: false,
+          genres: res.data.result
+        });
+      }).
+    catch(error => {
+      this.setState({
+        isLoading: false,
+        error: error.message
       });
+    });
   }
 
   render(){
@@ -101,15 +94,12 @@ class DashboardPage extends React.Component {
       users,
       workshops,
       genres,
-
     } = this.state;
 
     return (
       <div>
         <h3 style={globalStyles.navigation}>Application / Dashboard</h3>
-
         <div className="row">
-
           <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 ">
             <InfoBox
               Icon={ShoppingCart}
@@ -145,12 +135,9 @@ class DashboardPage extends React.Component {
               value={users}
             />
           </div>
-
         </div>
 
         <div className="row">
-
-
           <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 m-b-15">
             <MonthlySales data={Data.dashBoardPage.workshops} title={'Workshops / Months'}/>
           </div>
