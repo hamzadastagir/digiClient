@@ -8,6 +8,9 @@ import WorkshopForm from './containers/WorkshopForm';
 import WorkshopList from './containers/WorkshopList';
 import Dashboard from './containers/DashboardPage';
 import RegisterPage from './containers/RegisterPage';
+import GenreForm from "./containers/GenreForm";
+import GenreList from "./containers/GenreList";
+import UpdateWorkshop from "./containers/UpdateWorkshop";
 
 export default (
 
@@ -18,7 +21,10 @@ export default (
       <IndexRoute component={Dashboard}/>
 
       <Route path="dashboard" history={browserHistory} component={Dashboard}/>
-      <Route path="create"  history={browserHistory} component={WorkshopForm}/>
+      <Route path="workshop/new"  history={browserHistory} component={WorkshopForm}/>
+      <Route path="workshop/:_id"  history={browserHistory} component={UpdateWorkshop}/>
+      <Route path="genre/new"  history={browserHistory} component={GenreForm}/>
+      <Route path="genres"  history={browserHistory} component={GenreList}/>
       <Route path="workshops"  history={browserHistory} component={WorkshopList}/>
       <Route path="*"  history={browserHistory} component={NotFoundPage}/>
     </Route>

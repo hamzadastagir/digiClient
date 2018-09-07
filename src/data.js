@@ -13,8 +13,11 @@ const data = {
     { text: 'Dashboard', icon: <Assessment/>, link: '/dashboard' },
     { text: 'Create Workshop', icon: <Web/>, link: '/create' },
     { text: 'Workshops', icon: <GridOn/>, link: '/workshops' },
+    { text: 'Create Genre', icon: <GridOn/>, link: '/genre/new' },
+    { text: 'Genre List', icon: <GridOn/>, link: '/genres' },
     { text: 'Login ', icon: <PermIdentity/>, link: '/login' },
-    { text: 'Sign-Up', icon: <PermIdentity/>, link: '/register' }
+    { text: 'Sign-Up', icon: <PermIdentity/>, link: '/register' },
+    { text: 'Users', icon: <PermIdentity/>, link: '/users' }
   ],
   tablePage: {
     items: [

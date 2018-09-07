@@ -42,7 +42,7 @@ class WorkshopList extends React.Component {
         navigation="Application / Table Page"
       >
         <div>
-          <Link to="/create" >
+          <Link to="/workshop/new" >
             <FloatingActionButton style={styles.floatingActionButton} backgroundColor={pink500}>
               <ContentAdd />
             </FloatingActionButton>
@@ -78,7 +78,7 @@ class WorkshopList extends React.Component {
                     <TableRowColumn>{item.starsTotal}</TableRowColumn>
                     <TableRowColumn>{item.timesRated}</TableRowColumn>
                     <TableRowColumn>
-                      <Link className="button" to="/create">
+                      <Link className="button" to="/workshop/new">
                         <FloatingActionButton
                           zDepth={0}
                           mini={true}
@@ -88,6 +88,11 @@ class WorkshopList extends React.Component {
                           <ContentCreate  />
                         </FloatingActionButton>
                       </Link>
+                      <FloatingActionButton
+                        zDepth={0}
+                        mini={true}
+                        iconStyle={styles.editButton}
+                       />
                     </TableRowColumn>
                   </TableRow>
                 )}
