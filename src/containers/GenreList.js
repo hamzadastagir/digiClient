@@ -42,7 +42,7 @@ class GenreList extends React.Component {
         navigation="Application / Table Page"
       >
         <div>
-          <Link to="/workshop/new" >
+          <Link to="/genre/new" >
             <FloatingActionButton style={styles.floatingActionButton} backgroundColor={pink500}>
               <ContentAdd />
             </FloatingActionButton>
