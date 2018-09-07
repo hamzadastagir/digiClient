@@ -55,6 +55,7 @@ class GenreForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleName = this.handleName.bind(this);
     this.handleGenreUrl = this.handleGenreUrl.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   handleName(event) {
@@ -76,9 +77,8 @@ class GenreForm extends React.Component {
   }
 
   handleFormSubmit() {
-    const values = {...this.state};
     const { onClickSubmit } = this.props;
-    onClickSubmit(values);
+    onClickSubmit({ name: this.state.name });
   }
 
   render() {

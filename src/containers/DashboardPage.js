@@ -75,7 +75,7 @@ class DashboardPage extends React.Component {
   }
 
   fetchGenres() {
-    axios(`${baseApiUrl}/api/genres/`, { method: 'GET' })
+    axios(`${baseApiUrl}/api/genres/count`, { method: 'GET' })
       .then(res => {
         if(res.data.success) {
           this.setState({
@@ -108,7 +108,7 @@ class DashboardPage extends React.Component {
               Icon={ShoppingCart}
               color={pink600}
               title="Genres"
-              value="12"
+              value={genres}
             />
           </div>
 
