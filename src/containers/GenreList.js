@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {Link} from 'react-router';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentCreate from 'material-ui/svg-icons/content/create';
+import ContentDelete from 'material-ui/svg-icons/content/delete-sweep';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import Paper from '@material-ui/core/Paper';
 import {pink500, grey200, grey500} from 'material-ui/styles/colors';
@@ -64,16 +64,15 @@ class GenreList extends React.Component {
                     <TableRowColumn>{item.createdAt}</TableRowColumn>
                     <TableRowColumn>{item.updatedAt}</TableRowColumn>
                     <TableRowColumn>
-                      <Link className="button" to="/create">
-                        <FloatingActionButton
-                          zDepth={0}
-                          mini={true}
-                          backgroundColor={grey200}
-                          iconStyle={styles.editButton}
-                        >
-                          <ContentCreate  />
-                        </FloatingActionButton>
-                      </Link>
+                      <FloatingActionButton
+                        zDepth={0}
+                        mini={true}
+                        backgroundColor={grey200}
+                        iconStyle={styles.editButton}
+                        onClick={() => console.log('--------------------------------------')}
+                      >
+                        <ContentDelete />
+                      </FloatingActionButton>
                     </TableRowColumn>
                   </TableRow>
                 )}
