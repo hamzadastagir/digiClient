@@ -9,7 +9,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import Paper from '@material-ui/core/Paper';
 import {pink500, grey200, grey500} from 'material-ui/styles/colors';
 import PageBase from '../components/PageBase';
-import { fetchWorkshops } from "../store/actions/workshop";
+import { fetchGenres } from "../store/actions/genre";
 
 const styles = {
   root: {
@@ -51,32 +51,18 @@ class GenreList extends React.Component {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHeaderColumn>Title</TableHeaderColumn>
-                  <TableHeaderColumn>Description</TableHeaderColumn>
-                  <TableHeaderColumn>Content</TableHeaderColumn>
-                  <TableHeaderColumn>Venue</TableHeaderColumn>
-                  <TableHeaderColumn>Speaker</TableHeaderColumn>
-                  <TableHeaderColumn>Video Link</TableHeaderColumn>
-                  <TableHeaderColumn>Date Organizing</TableHeaderColumn>
-                  <TableHeaderColumn>Rating</TableHeaderColumn>
-                  <TableHeaderColumn>Tatal Stars</TableHeaderColumn>
-                  <TableHeaderColumn>Times Rated</TableHeaderColumn>
-                  <TableHeaderColumn> Edit</TableHeaderColumn>
+                  <TableHeaderColumn>Name</TableHeaderColumn>
+                  <TableHeaderColumn>Created At</TableHeaderColumn>
+                  <TableHeaderColumn>Updated At</TableHeaderColumn>
+                  <TableHeaderColumn>Actions</TableHeaderColumn>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {data && data.map(item =>
+                {data.length > 0 && data.map(item =>
                   <TableRow key={item._id}>
-                    <TableRowColumn>{item.title}</TableRowColumn>
-                    <TableRowColumn>{item.description}</TableRowColumn>
-                    <TableRowColumn>{item.content}</TableRowColumn>
-                    <TableRowColumn>{item.venue}</TableRowColumn>
-                    <TableRowColumn>{item.speaker}</TableRowColumn>
-                    <TableRowColumn>{item.videoLink}</TableRowColumn>
-                    <TableRowColumn>{item.dateOrganizing}</TableRowColumn>
-                    <TableRowColumn>{item.rating}</TableRowColumn>
-                    <TableRowColumn>{item.starsTotal}</TableRowColumn>
-                    <TableRowColumn>{item.timesRated}</TableRowColumn>
+                    <TableRowColumn>{item.name}</TableRowColumn>
+                    <TableRowColumn>{item.createdAt}</TableRowColumn>
+                    <TableRowColumn>{item.updatedAt}</TableRowColumn>
                     <TableRowColumn>
                       <Link className="button" to="/create">
                         <FloatingActionButton
@@ -102,17 +88,17 @@ class GenreList extends React.Component {
 
 function mapDispatchToProps(dispatch){
   return {
-    fetchData: () =>  dispatch(fetchWorkshops()),
+    fetchData: () =>  dispatch(fetchGenres()),
   };
 }
 
 function mapStateToProps(state){
-  const { workshop } = state;
+  const { genre } = state;
 
   return {
-    data: workshop.get('data'),
-    loading: workshop.loading,
-    success: workshop.success,
+    data: genre.get('data'),
+    loading: genre.loading,
+    success: genre.success,
   };
 }
 
