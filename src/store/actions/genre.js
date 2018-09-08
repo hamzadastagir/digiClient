@@ -5,7 +5,10 @@ import {
   CREATE_GENRE_FAILED,
   GET_GENERE_REQUEST,
   GET_GENERE_SUCCESS,
-  GET_GENERE_FAILED
+  GET_GENERE_FAILED,
+  DELETE_GENERE_REQUEST,
+  DELETE_GENERE_SUCCESS,
+  DELETE_GENERE_FAILED,
 } from '../constants';
 import {baseApiUrl} from "../../utils/constants";
 
@@ -57,6 +60,26 @@ export  function fetchGenres() {
   };
 }
 
-export default {
-  createGenre,
-};
+export  function deleteGenre(id) {
+  console.log(id);
+  // return dispatch => {
+  //   dispatch({
+  //     type: DELETE_GENERE_REQUEST
+  //   });
+  //   axios(`${baseApiUrl}/api/genres/${id}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Accepts': 'application/json'
+  //     }
+  //   }).then(res => {
+  //     dispatch({
+  //       type: DELETE_GENERE_SUCCESS,
+  //       payload: res.data.result[0]
+  //     });
+  //   }).catch(() => {
+  //     dispatch({
+  //       type: DELETE_GENERE_FAILED,
+  //     });
+  //   });
+  // };
+}

@@ -7,6 +7,9 @@ import {
   GET_GENERE_REQUEST,
   GET_GENERE_SUCCESS,
   GET_GENERE_FAILED,
+  DELETE_GENERE_REQUEST,
+  DELETE_GENERE_SUCCESS,
+  DELETE_GENERE_FAILED,
 } from '../constants';
 
 // The initial state of the App
@@ -29,6 +32,12 @@ function genreReducer(state = initialState, action) {
     case GET_GENERE_SUCCESS:
       return state.set('data', action.payload).set('success', true).set('loading', false);
     case GET_GENERE_FAILED:
+      return state.set(initialState);
+    case DELETE_GENERE_REQUEST:
+      return state.set('data', {}).set('success', false).set('loading', true);
+    case DELETE_GENERE_SUCCESS:
+      return state.set('data', action.payload).set('success', true).set('loading', false);
+    case DELETE_GENERE_FAILED:
       return state.set(initialState);
     default:
       return state;
