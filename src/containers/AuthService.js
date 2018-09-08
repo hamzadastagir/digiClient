@@ -48,7 +48,7 @@ export default class AuthService {
   }
 
   getToken() {
-    return JSON.parse(localStorage.getItem('auth_token'));
+    return localStorage.getItem('auth_token');
   }
 
   logout() {
