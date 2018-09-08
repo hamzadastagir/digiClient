@@ -9,6 +9,12 @@ import {
   DELETE_WORKSHOP_REQUEST,
   DELETE_WORKSHOP_SUCCESS,
   DELETE_WORKSHOP_FAILED,
+  GET_WORKSHOP_BY_ID_REQUEST,
+  GET_WORKSHOP_BY_ID_SUCCESS,
+  GET_WORKSHOP_BY_ID_FAILED,
+  UPDATE_WORKSHOP_REQUEST,
+  UPDATE_WORKSHOP_SUCCESS,
+  UPDATE_WORKSHOP_FAILED,
 } from '../constants';
 import {baseApiUrl} from "../../utils/constants";
 
@@ -82,6 +88,56 @@ export  function deleteWorkshop(id) {
     }).catch(() => {
       dispatch({
         type: DELETE_WORKSHOP_FAILED,
+
+      });
+    });
+  };
+}
+
+export  function updateWorkshop(id) {
+  return dispatch => {
+    dispatch({
+      type: UPDATE_WORKSHOP_REQUEST
+    });
+    axios(`${baseApiUrl}/api/workshops/${id}`, {
+      method: 'UPDATE',
+      headers: {
+        'Accepts': 'application/json',
+        'x-auth-token': token
+      }
+    }).then(res => {
+      dispatch({
+        type: UPDATE_WORKSHOP_SUCCESS,
+        payload: res.data.result[0]
+      });
+    }).catch(() => {
+      dispatch({
+        type: UPDATE_WORKSHOP_FAILED,
+
+      });
+    });
+  };
+}
+
+export  function getWorkshopDataById(id) {
+  return dispatch => {
+    dispatch({
+      type: GET_WORKSHOP_BY_ID_REQUEST
+    });
+    axios(`${baseApiUrl}/api/workshops/${id}`, {
+      method: 'GET',
+      headers: {
+        'Accepts': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      dispatch({
+        type: GET_WORKSHOP_BY_ID_SUCCESS,
+        payload: res.data.result
+      });
+    }).catch(() => {
+      dispatch({
+        type: GET_WORKSHOP_BY_ID_FAILED,
 
       });
     });

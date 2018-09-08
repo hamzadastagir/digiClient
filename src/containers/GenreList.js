@@ -38,7 +38,7 @@ class GenreList extends React.Component {
     const { data } = this.props;
     return (
       <PageBase
-        title="Workshops"
+        title="Genres"
         navigation="Application / Table Page"
       >
         <div>

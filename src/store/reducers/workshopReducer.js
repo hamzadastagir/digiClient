@@ -10,6 +10,12 @@ import {
   DELETE_WORKSHOP_REQUEST,
   DELETE_WORKSHOP_SUCCESS,
   DELETE_WORKSHOP_FAILED,
+  GET_WORKSHOP_BY_ID_FAILED,
+  GET_WORKSHOP_BY_ID_SUCCESS,
+  GET_WORKSHOP_BY_ID_REQUEST,
+  UPDATE_WORKSHOP_REQUEST,
+  UPDATE_WORKSHOP_SUCCESS,
+  UPDATE_WORKSHOP_FAILED,
 } from '../constants';
 
 // The initial state of the App
@@ -41,6 +47,18 @@ function workshopReducer(state = initialState, action) {
       return state.update('data', data => data.filter(value =>(value._id !== id))).set('loading', false);
     }
     case DELETE_WORKSHOP_FAILED:
+      return state.set(initialState);
+    case GET_WORKSHOP_BY_ID_REQUEST:
+      return state.set('data', {}).set('success', false).set('loading', true);
+    case GET_WORKSHOP_BY_ID_SUCCESS:
+      return state.set('data', action.payload).set('success', true).set('loading', false);
+    case GET_WORKSHOP_BY_ID_FAILED:
+      return state.set(initialState);
+    case UPDATE_WORKSHOP_REQUEST:
+      return state.set('data', {}).set('success', false).set('loading', true);
+    case UPDATE_WORKSHOP_SUCCESS:
+      return state.set('data', action.payload).set('success', true).set('loading', false);
+    case UPDATE_WORKSHOP_FAILED:
       return state.set(initialState);
     default:
       return state;

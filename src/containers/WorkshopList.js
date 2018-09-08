@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import {connect} from "react-redux";
+import { Redirect } from 'react-router-dom';
 import {Link} from 'react-router';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -44,7 +45,6 @@ class WorkshopList extends React.Component {
   }
   render() {
     const { data, deleteData, loading } = this.props;
-    console.log(loading);
     return (
       <PageBase
         title="Workshops"
@@ -88,7 +88,7 @@ class WorkshopList extends React.Component {
                       <TableRowColumn>{item.starsTotal}</TableRowColumn>
                       <TableRowColumn>{item.timesRated}</TableRowColumn>
                       <TableRowColumn>
-                        <Link className="button" to="/workshop/new">
+                        <Link to={`/workshop/${item._id}`}>
                           <FloatingActionButton
                             zDepth={0}
                             mini={true}

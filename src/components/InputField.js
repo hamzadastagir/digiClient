@@ -10,9 +10,10 @@ const styles = {
   }
 };
 
-const InputField = ({name, multiLine, floatingLabelText, handleChange }) => {
+const InputField = ({value, name, multiLine, floatingLabelText, handleChange }) => {
   return (
     <TextField
+      value={value}
       neme={name}
       floatingLabelText={floatingLabelText}
       style={{...styles.inputField, marginBottom: 20 }}

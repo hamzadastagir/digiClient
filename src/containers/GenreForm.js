@@ -84,8 +84,8 @@ class GenreForm extends React.Component {
   render() {
     return (
       <PageBase
-        title="Workshop Details"
-        navigation="Dashboard / Workshop"
+        title="Genre Details"
+        navigation="Dashboard / Genre"
       >
 
         <Paper style={styles.root} elevation={1}>
