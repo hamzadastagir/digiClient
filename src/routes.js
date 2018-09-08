@@ -10,6 +10,7 @@ import Dashboard from './containers/DashboardPage';
 import RegisterPage from './containers/RegisterPage';
 import GenreForm from "./containers/GenreForm";
 import GenreList from "./containers/GenreList";
+import PublicView from "./containers/PublicView";
 import UpdateWorkshop from "./containers/UpdateWorkshop";
 
 export default (
@@ -18,7 +19,7 @@ export default (
     <Route exact path="/login" history={browserHistory} component={LoginPage}/>
     <Route exact path="/" history={browserHistory} component={App}>
       <Route exact path="/register" history={browserHistory} component={RegisterPage}/>
-      <IndexRoute component={Dashboard}/>
+      <IndexRoute component={PublicView}/>
 
       <Route path="dashboard" history={browserHistory} component={Dashboard}/>
       <Route path="workshop/new"  history={browserHistory} component={WorkshopForm}/>

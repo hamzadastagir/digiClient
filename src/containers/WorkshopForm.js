@@ -139,6 +139,7 @@ class WorkshopForm extends React.Component {
   }
 
   render() {
+    const { workshop } = this.props;
     return (
       <PageBase
         title="Workshop Details"
@@ -148,7 +149,7 @@ class WorkshopForm extends React.Component {
         <Paper style={styles.root} elevation={1}>
           <h1 style={styles.titleText}>WORKSHOP DETAILS</h1>
           <form style={styles.formContainer}>
-            <InputField name="title" multiLine={false} floatingLabelText="Title" handleChange={this.handleTitle}/>
+            <InputField value={workshop.title} name="title" multiLine={false} floatingLabelText="Title" handleChange={this.handleTitle}/>
             <InputField name="description" multiLine={true} floatingLabelText="Description" handleChange={this.handleChange}/>
             <InputField name="content" multiLine={false} floatingLabelText="Content" handleChange={this.handleContent}/>
             <InputField name="venue" multiLine={false} floatingLabelText="Venue" handleChange={this.handleVenue}/>
@@ -188,9 +189,9 @@ function mapStateToProps(state){
   const { workshop } = state;
 
   return {
-    workshop: workshop.workshop,
-    loading: workshop.loading,
-    success: workshop.success,
+    workshop: workshop.get('workshop'),
+    loading: workshop.get('loading'),
+    success: workshop.get('success'),
   };
 }
 
