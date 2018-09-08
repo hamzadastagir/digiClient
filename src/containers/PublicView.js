@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import Paper from "@material-ui/core/Paper/Paper";
 import Grid from "@material-ui/core/Grid/Grid";
 import PageBase from '../components/PageBase';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
 import {fetchWorkshops} from "../store/actions/workshop";
@@ -71,14 +71,14 @@ class PublicView extends React.Component {
           <Grid container spacing={24}>
             <Grid item xs={6} sm={3}>
               <Card>
-                <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
+                <CardTitle style={{ backgroundColor: 'lightslategrey' }} title="Workshop title" subtitle="Workshop subtitle" />
                 <CardText>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
                   Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
                   Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
                 </CardText>
-                <CardActions>
+                <CardActions style={{ backgroundColor: 'darkgra' }}>
                   <FlatButton label="Action1" />
                   <FlatButton label="Action2" />
                 </CardActions>
@@ -86,14 +86,14 @@ class PublicView extends React.Component {
             </Grid>
             <Grid item xs={6} sm={3}>
               <Card>
-                <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
+                <CardTitle style={{ backgroundColor: 'lightslategrey' }} title="Workshop title" subtitle="Workshop subtitle" />
                 <CardText>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
                   Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
                   Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
                 </CardText>
-                <CardActions>
+                <CardActions style={{ backgroundColor: 'darkgra' }}>
                   <FlatButton label="Action1" />
                   <FlatButton label="Action2" />
                 </CardActions>
@@ -101,14 +101,14 @@ class PublicView extends React.Component {
             </Grid>
             <Grid item xs={6} sm={3}>
               <Card>
-                <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
+                <CardTitle style={{ backgroundColor: 'lightslategrey' }} title="Workshop title" subtitle="Workshop subtitle" />
                 <CardText>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
                   Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
                   Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
                 </CardText>
-                <CardActions>
+                <CardActions style={{ backgroundColor: 'darkgra' }}>
                   <FlatButton label="Action1" />
                   <FlatButton label="Action2" />
                 </CardActions>
@@ -116,77 +116,14 @@ class PublicView extends React.Component {
             </Grid>
             <Grid item xs={6} sm={3}>
               <Card>
-                <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
+                <CardTitle style={{ backgroundColor: 'lightslategrey' }} title="Workshop title" subtitle="Workshop subtitle" />
                 <CardText>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
                   Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
                   Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
                 </CardText>
-                <CardActions>
-                  <FlatButton label="Action1" />
-                  <FlatButton label="Action2" />
-                </CardActions>
-              </Card>
-            </Grid>
-          </Grid>
-          <br />
-          <Grid container spacing={24}>
-            <Grid item xs={6} sm={3}>
-              <Card>
-                <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
-                <CardText>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-                </CardText>
-                <CardActions>
-                  <FlatButton label="Action1" />
-                  <FlatButton label="Action2" />
-                </CardActions>
-              </Card>
-            </Grid>
-            <Grid item xs={6} sm={3}>
-              <Card>
-                <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
-                <CardText>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-                </CardText>
-                <CardActions>
-                  <FlatButton label="Action1" />
-                  <FlatButton label="Action2" />
-                </CardActions>
-              </Card>
-            </Grid>
-            <Grid item xs={6} sm={3}>
-              <Card>
-                <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
-                <CardText>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-                </CardText>
-                <CardActions>
-                  <FlatButton label="Action1" />
-                  <FlatButton label="Action2" />
-                </CardActions>
-              </Card>
-            </Grid>
-            <Grid item xs={6} sm={3}>
-              <Card>
-                <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
-                <CardText>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-                </CardText>
-                <CardActions>
+                <CardActions style={{ backgroundColor: 'darkgra' }}>
                   <FlatButton label="Action1" />
                   <FlatButton label="Action2" />
                 </CardActions>
@@ -197,14 +134,14 @@ class PublicView extends React.Component {
           <Grid container spacing={24}>
             <Grid item xs={6} sm={3}>
               <Card>
-                <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
+                <CardTitle style={{ backgroundColor: 'lightslategrey' }} title="Workshop title" subtitle="Workshop subtitle" />
                 <CardText>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
                   Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
                   Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
                 </CardText>
-                <CardActions>
+                <CardActions style={{ backgroundColor: 'darkgra' }}>
                   <FlatButton label="Action1" />
                   <FlatButton label="Action2" />
                 </CardActions>
@@ -212,14 +149,14 @@ class PublicView extends React.Component {
             </Grid>
             <Grid item xs={6} sm={3}>
               <Card>
-                <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
+                <CardTitle style={{ backgroundColor: 'lightslategrey' }} title="Workshop title" subtitle="Workshop subtitle" />
                 <CardText>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
                   Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
                   Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
                 </CardText>
-                <CardActions>
+                <CardActions style={{ backgroundColor: 'darkgra' }}>
                   <FlatButton label="Action1" />
                   <FlatButton label="Action2" />
                 </CardActions>
@@ -227,14 +164,14 @@ class PublicView extends React.Component {
             </Grid>
             <Grid item xs={6} sm={3}>
               <Card>
-                <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
+                <CardTitle style={{ backgroundColor: 'lightslategrey' }} title="Workshop title" subtitle="Workshop subtitle" />
                 <CardText>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
                   Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
                   Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
                 </CardText>
-                <CardActions>
+                <CardActions style={{ backgroundColor: 'darkgra' }}>
                   <FlatButton label="Action1" />
                   <FlatButton label="Action2" />
                 </CardActions>
@@ -242,14 +179,77 @@ class PublicView extends React.Component {
             </Grid>
             <Grid item xs={6} sm={3}>
               <Card>
-                <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
+                <CardTitle style={{ backgroundColor: 'lightslategrey' }} title="Workshop title" subtitle="Workshop subtitle" />
                 <CardText>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
                   Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
                   Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
                 </CardText>
-                <CardActions>
+                <CardActions style={{ backgroundColor: 'darkgra' }}>
+                  <FlatButton label="Action1" />
+                  <FlatButton label="Action2" />
+                </CardActions>
+              </Card>
+            </Grid>
+          </Grid>
+          <br />
+          <Grid container spacing={24}>
+            <Grid item xs={6} sm={3}>
+              <Card>
+                <CardTitle style={{ backgroundColor: 'lightslategrey' }} title="Workshop title" subtitle="Workshop subtitle" />
+                <CardText>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+                  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+                  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                </CardText>
+                <CardActions style={{ backgroundColor: 'darkgra' }}>
+                  <FlatButton label="Action1" />
+                  <FlatButton label="Action2" />
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid item xs={6} sm={3}>
+              <Card>
+                <CardTitle style={{ backgroundColor: 'lightslategrey' }} title="Workshop title" subtitle="Workshop subtitle" />
+                <CardText>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+                  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+                  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                </CardText>
+                <CardActions style={{ backgroundColor: 'darkgra' }}>
+                  <FlatButton label="Action1" />
+                  <FlatButton label="Action2" />
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid item xs={6} sm={3}>
+              <Card>
+                <CardTitle style={{ backgroundColor: 'lightslategrey' }} title="Workshop title" subtitle="Workshop subtitle" />
+                <CardText>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+                  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+                  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                </CardText>
+                <CardActions style={{ backgroundColor: 'darkgra' }}>
+                  <FlatButton label="Action1" />
+                  <FlatButton label="Action2" />
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid item xs={6} sm={3}>
+              <Card>
+                <CardTitle style={{ backgroundColor: 'lightslategrey' }} title="Workshop title" subtitle="Workshop subtitle" />
+                <CardText>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+                  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+                  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                </CardText>
+                <CardActions style={{ backgroundColor: 'darkgra' }}>
                   <FlatButton label="Action1" />
                   <FlatButton label="Action2" />
                 </CardActions>
