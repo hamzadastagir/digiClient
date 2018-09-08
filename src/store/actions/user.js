@@ -30,7 +30,3 @@ export function createUser(body) {
     });
   };
 }
-
-export default {
-  createUser,
-};

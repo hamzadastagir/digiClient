@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars,react/prop-types */
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -11,10 +11,8 @@ import PersonAdd from 'material-ui/svg-icons/social/person-add';
 import TextField from 'material-ui/TextField';
 import {Link} from 'react-router';
 import ThemeDefault from '../theme-default';
-
 import AuthService from './AuthService';
-import Dashboard from './DashboardPage';
-
+import {LOGIN_USER_SUCCESS} from "../store/constants";
 
 const styles = {
   loginContainer: {
@@ -96,13 +94,13 @@ class LoginPage extends React.Component {
     e.preventDefault();
     this.Auth.login(this.state.email,this.state.password)
       .then(response => {
+        this.props.loginAction(response);
         this.props.route.history.replace('/');
       })
       .catch(err =>{
         alert(err);
       });
   }
-
 
   handleChange(e){
     this.setState(
@@ -168,4 +166,26 @@ class LoginPage extends React.Component {
   }
 }
 
-export default LoginPage;
+function mapDispatchToProps(dispatch){
+  return {
+    loginAction: (response) =>  dispatch({
+      type: LOGIN_USER_SUCCESS,
+      payload: response
+    }),
+  };
+}
+
+function mapStateToProps(state){
+  const { workshop } = state;
+
+  return {
+    workshop: workshop.get('workshop'),
+    loading: workshop.get('loading'),
+    success: workshop.get('success'),
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginPage);

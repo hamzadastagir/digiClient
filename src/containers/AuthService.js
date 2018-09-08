@@ -20,6 +20,7 @@ export default class AuthService {
 
     }).then(res => {
       this.setToken(res.token); // Setting the token in localStorage
+      this.setIsAdmin(res.isAdmin); // Setting the token in localStorage
       return Promise.resolve(res);
     });
   }
@@ -47,12 +48,17 @@ export default class AuthService {
     localStorage.setItem('auth_token', idToken);
   }
 
+  setIsAdmin(isAdmin) {
+    localStorage.setItem('isAdmin', isAdmin);
+  }
+
   getToken() {
     return localStorage.getItem('auth_token');
   }
 
   logout() {
     localStorage.removeItem('auth_token');
+    localStorage.removeItem('isAdmin');
   }
 
   getProfile() {
