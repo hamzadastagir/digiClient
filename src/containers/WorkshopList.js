@@ -8,9 +8,10 @@ import ContentCreate from 'material-ui/svg-icons/content/create';
 import ContentDelete from 'material-ui/svg-icons/content/delete-sweep';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import Paper from '@material-ui/core/Paper';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import {pink500, grey200, grey500} from 'material-ui/styles/colors';
 import PageBase from '../components/PageBase';
-import { fetchWorkshops } from "../store/actions/workshop";
+import {deleteWorkshop, fetchWorkshops} from "../store/actions/workshop";
 
 const styles = {
   root: {
@@ -28,6 +29,12 @@ const styles = {
   editButton: {
     fill: grey500
   },
+  deleteButtom: {
+    fill: '#fd5f60'
+  },
+  progress: {
+    marginLeft: '50%',
+  },
 };
 
 class WorkshopList extends React.Component {
@@ -36,7 +43,8 @@ class WorkshopList extends React.Component {
     fetchData();
   }
   render() {
-    const { data } = this.props;
+    const { data, deleteData, loading } = this.props;
+    console.log(loading);
     return (
       <PageBase
         title="Workshops"
@@ -49,59 +57,62 @@ class WorkshopList extends React.Component {
             </FloatingActionButton>
           </Link>
           <Paper style={styles.root} elevation={1}>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHeaderColumn>Title</TableHeaderColumn>
-                  <TableHeaderColumn>Description</TableHeaderColumn>
-                  <TableHeaderColumn>Content</TableHeaderColumn>
-                  <TableHeaderColumn>Venue</TableHeaderColumn>
-                  <TableHeaderColumn>Speaker</TableHeaderColumn>
-                  <TableHeaderColumn>Video Link</TableHeaderColumn>
-                  <TableHeaderColumn>Date Organizing</TableHeaderColumn>
-                  <TableHeaderColumn>Rating</TableHeaderColumn>
-                  <TableHeaderColumn>Tatal Stars</TableHeaderColumn>
-                  <TableHeaderColumn>Times Rated</TableHeaderColumn>
-                  <TableHeaderColumn> Edit</TableHeaderColumn>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {data && data.map(item =>
-                  <TableRow key={item._id}>
-                    <TableRowColumn>{item.title}</TableRowColumn>
-                    <TableRowColumn>{item.description}</TableRowColumn>
-                    <TableRowColumn>{item.content}</TableRowColumn>
-                    <TableRowColumn>{item.venue}</TableRowColumn>
-                    <TableRowColumn>{item.speaker}</TableRowColumn>
-                    <TableRowColumn>{item.videoLink}</TableRowColumn>
-                    <TableRowColumn>{item.dateOrganizing}</TableRowColumn>
-                    <TableRowColumn>{item.rating}</TableRowColumn>
-                    <TableRowColumn>{item.starsTotal}</TableRowColumn>
-                    <TableRowColumn>{item.timesRated}</TableRowColumn>
-                    <TableRowColumn>
-                      <Link className="button" to="/workshop/new">
+            {loading ? <CircularProgress style={styles.progress} size={100}/> :
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHeaderColumn>Title</TableHeaderColumn>
+                    <TableHeaderColumn>Description</TableHeaderColumn>
+                    <TableHeaderColumn>Content</TableHeaderColumn>
+                    <TableHeaderColumn>Venue</TableHeaderColumn>
+                    <TableHeaderColumn>Speaker</TableHeaderColumn>
+                    <TableHeaderColumn>Video Link</TableHeaderColumn>
+                    <TableHeaderColumn>Date Organizing</TableHeaderColumn>
+                    <TableHeaderColumn>Rating</TableHeaderColumn>
+                    <TableHeaderColumn>Tatal Stars</TableHeaderColumn>
+                    <TableHeaderColumn>Times Rated</TableHeaderColumn>
+                    <TableHeaderColumn> Edit</TableHeaderColumn>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {data && data.map(item =>
+                    <TableRow key={item._id}>
+                      <TableRowColumn>{item.title}</TableRowColumn>
+                      <TableRowColumn>{item.description}</TableRowColumn>
+                      <TableRowColumn>{item.content}</TableRowColumn>
+                      <TableRowColumn>{item.venue}</TableRowColumn>
+                      <TableRowColumn>{item.speaker}</TableRowColumn>
+                      <TableRowColumn>{item.videoLink}</TableRowColumn>
+                      <TableRowColumn>{item.dateOrganizing}</TableRowColumn>
+                      <TableRowColumn>{item.rating}</TableRowColumn>
+                      <TableRowColumn>{item.starsTotal}</TableRowColumn>
+                      <TableRowColumn>{item.timesRated}</TableRowColumn>
+                      <TableRowColumn>
+                        <Link className="button" to="/workshop/new">
+                          <FloatingActionButton
+                            zDepth={0}
+                            mini={true}
+                            backgroundColor={grey200}
+                            iconStyle={styles.editButton}
+                          >
+                            <ContentCreate/>
+                          </FloatingActionButton>
+                        </Link>
                         <FloatingActionButton
                           zDepth={0}
                           mini={true}
                           backgroundColor={grey200}
-                          iconStyle={styles.editButton}
+                          onClick={() => deleteData(item._id)}
+                          iconStyle={styles.deleteButtom}
                         >
-                          <ContentCreate  />
+                          <ContentDelete/>
                         </FloatingActionButton>
-                      </Link>
-                      <FloatingActionButton
-                        zDepth={0}
-                        mini={true}
-                        backgroundColor={grey200}
-                        iconStyle={styles.editButton}
-                      >
-                        <ContentDelete />
-                      </FloatingActionButton>
-                    </TableRowColumn>
-                  </TableRow>
-                )}
-              </TableBody>
-            </Table>
+                      </TableRowColumn>
+                    </TableRow>
+                  )}
+                </TableBody>
+              </Table>
+            }
           </Paper>
         </div>
       </PageBase>
@@ -112,6 +123,7 @@ class WorkshopList extends React.Component {
 function mapDispatchToProps(dispatch){
   return {
     fetchData: () =>  dispatch(fetchWorkshops()),
+    deleteData: (id) =>  dispatch(deleteWorkshop(id)),
   };
 }
 
@@ -120,8 +132,8 @@ function mapStateToProps(state){
 
   return {
     data: workshop.get('data'),
-    loading: workshop.loading,
-    success: workshop.success,
+    loading: workshop.get('loading'),
+    success: workshop.get('success'),
   };
 }
 

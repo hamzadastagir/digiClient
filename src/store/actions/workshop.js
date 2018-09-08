@@ -5,7 +5,10 @@ import {
   CREATE_WORKSHOP_FAILED,
   GET_WORKSHOP_REQUEST,
   GET_WORKSHOP_SUCCESS,
-  GET_WORKSHOP_FAILED
+  GET_WORKSHOP_FAILED,
+  DELETE_WORKSHOP_REQUEST,
+  DELETE_WORKSHOP_SUCCESS,
+  DELETE_WORKSHOP_FAILED,
 } from '../constants';
 import {baseApiUrl} from "../../utils/constants";
 
@@ -34,6 +37,8 @@ export function createWorkshop(body) {
   };
 }
 
+const token = localStorage.getItem('auth_token');
+
 export  function fetchWorkshops() {
   return dispatch => {
     dispatch({
@@ -58,7 +63,28 @@ export  function fetchWorkshops() {
   };
 }
 
-export default {
-  createWorkshop,
-  fetchWorkshops
-};
+export  function deleteWorkshop(id) {
+  return dispatch => {
+    dispatch({
+      type: DELETE_WORKSHOP_REQUEST
+    });
+    axios(`${baseApiUrl}/api/workshops/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Accepts': 'application/json',
+        'x-auth-token': token
+      }
+    }).then(res => {
+      dispatch({
+        type: DELETE_WORKSHOP_SUCCESS,
+        payload: res.data.result[0]
+      });
+    }).catch(() => {
+      dispatch({
+        type: DELETE_WORKSHOP_FAILED,
+
+      });
+    });
+  };
+}
+

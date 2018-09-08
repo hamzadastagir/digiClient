@@ -5,6 +5,9 @@ export const CREATE_WORKSHOP_FAILED = 'src/store/CREATE_WORKSHOP_FAILED';
 export const GET_WORKSHOP_REQUEST = 'src/store/GET_WORKSHOP_REQUEST';
 export const GET_WORKSHOP_SUCCESS = 'src/store/GET_WORKSHOP_SUCCESS';
 export const GET_WORKSHOP_FAILED = 'src/store/GET_WORKSHOP_FAILED';
+export const DELETE_WORKSHOP_REQUEST = 'src/store/DELETE_WORKSHOP_REQUEST';
+export const DELETE_WORKSHOP_SUCCESS = 'src/store/DELETE_WORKSHOP_SUCCESS';
+export const DELETE_WORKSHOP_FAILED = 'src/store/DELETE_WORKSHOP_FAILED';
 
 // Create constants for Genre
 export const CREATE_GENRE_REQUEST = 'src/store/CREATE_GENRE_REQUEST';
