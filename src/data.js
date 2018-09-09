@@ -20,13 +20,18 @@ const data = {
     { text: 'Genre List', icon: <GridOn/>, link: '/genres' },
     { text: 'Login ', icon: <PermIdentity/>, link: '/login' },
     { text: 'Create User', icon: <PermIdentity/>, link: '/register' },
-    { text: 'Users', icon: <PermIdentity/>, link: '/users' }
+    { text: 'Users', icon: <PermIdentity/>, link: '/users' },
+    { text: 'About Us', icon: <AboutUs/>, link: '/about' },
+    { text: 'Contact Us', icon: <Contact/>, link: '/contact' },
   ],
   userView: [
+    { text: 'Dashboard', icon: <Assessment/>, link: '/dashboard' },
     { text: 'Workshops', icon: <GridOn/>, link: '/workshops' },
     { text: 'Genre List', icon: <GridOn/>, link: '/genres' },
     { text: 'LogIn ', icon: <PermIdentity/>, link: '/login' },
     { text: 'SignUp', icon: <PermIdentity/>, link: '/register' },
+    { text: 'About Us', icon: <AboutUs/>, link: '/about' },
+    { text: 'Contact Us', icon: <Contact/>, link: '/contact' },
   ],
   visitorView: [
     { text: 'Home', icon: <HomePage/>, link: '/' },

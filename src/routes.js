@@ -13,6 +13,7 @@ import GenreList from "./containers/GenreList";
 import PublicView from "./containers/PublicView";
 import UpdateWorkshop from "./containers/UpdateWorkshop";
 import AboutUs from "./components/AboutUs";
+import ContactUs from "./components/Contact";
 
 export default (
 
@@ -24,6 +25,7 @@ export default (
 
       <Route path="dashboard" history={browserHistory} component={Dashboard}/>
       <Route path="about" history={browserHistory} component={AboutUs}/>
+      <Route path="contact" history={browserHistory} component={ContactUs}/>
       <Route path="workshop/new"  history={browserHistory} component={WorkshopForm}/>
       <Route path="workshop/:_id"  history={browserHistory} component={UpdateWorkshop}/>
       <Route path="genre/new"  history={browserHistory} component={GenreForm}/>
