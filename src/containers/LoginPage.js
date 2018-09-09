@@ -132,7 +132,6 @@ class LoginPage extends React.Component {
                   name="password"
                   onChange={this.handleChange}
                 />
-
                 <Checkbox
                   label="Remember me"
                   style={styles.checkRemember.style}
@@ -150,7 +149,6 @@ class LoginPage extends React.Component {
                 </Link>
               </form>
             </Paper>
-
             <div style={styles.buttonsDiv}>
               <FlatButton
                 label="Register"

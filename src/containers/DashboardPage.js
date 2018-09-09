@@ -30,7 +30,6 @@ class DashboardPage extends React.Component {
     this.fetchUsers = this.fetchUsers.bind(this);
     this.fetchWorkshops = this.fetchWorkshops.bind(this);
     this.fetchGenres = this.fetchGenres.bind(this);
-
   }
 
   componentWillMount() {

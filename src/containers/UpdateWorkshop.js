@@ -89,7 +89,6 @@ class UpdateWorkshop extends React.Component {
         timesRated:     workshop.timesRated,
       });
     }
-
   }
 
   handleTitle(event) {
@@ -164,7 +163,6 @@ class UpdateWorkshop extends React.Component {
         title="Workshop Details"
         navigation="Dashboard / Workshop"
       >
-
         <Paper style={styles.root} elevation={1}>
           <h1 style={styles.titleText}>WORKSHOP DETAILS</h1>
           <form style={styles.formContainer}>
@@ -178,12 +176,10 @@ class UpdateWorkshop extends React.Component {
             <InputField value={this.state.description} name="rating" multiLine={false} floatingLabelText="Rating" handleChange={this.handleRating}/>
             <InputField value={this.state.content} name="timesRated" multiLine={false} floatingLabelText="Times Rated" handleChange={this.handleTimeRated}/>
             <InputField value={this.state.venue} name="starsTotal" multiLine={false} floatingLabelText="Stars Total" handleChange={this.handleStars}/>
-
             <div style={styles.buttons}>
               <Link to="/workshops">
                 <RaisedButton label="Cancel"/>
               </Link>
-
               <RaisedButton
                 label="Save"
                 style={styles.saveButton}

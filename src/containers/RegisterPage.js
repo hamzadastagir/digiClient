@@ -82,7 +82,6 @@ class RegisterPage extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-
   }
 
   handleFormSubmit(e){
@@ -105,9 +104,7 @@ class RegisterPage extends React.Component {
       <MuiThemeProvider muiTheme={ThemeDefault}>
         <div>
           <div style={styles.loginContainer}>
-
             <Paper style={styles.paper}>
-
               <form onSubmit={this.handleFormSubmit}>
                 <TextField
                   hintText="Name"

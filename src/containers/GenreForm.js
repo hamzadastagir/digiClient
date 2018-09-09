@@ -87,19 +87,16 @@ class GenreForm extends React.Component {
         title="Genre Details"
         navigation="Dashboard / Genre"
       >
-
         <Paper style={styles.root} elevation={1}>
           <h1 style={styles.titleText}>GENRE DETAILS</h1>
           <form style={styles.formContainer}>
             <InputField name="name" multiLine={false} floatingLabelText="Name" handleChange={this.handleName}/>
             <InputField name="url" multiLine={false} floatingLabelText="URL" handleChange={this.handleGenreUrl}/>
             <InputField name="description" multiLine={true} floatingLabelText="Description" handleChange={this.handleChange}/>
-
             <div style={styles.buttons}>
               <Link to="/dashboard">
                 <RaisedButton label="Cancel"/>
               </Link>
-
               <RaisedButton
                 label="Save"
                 style={styles.saveButton}

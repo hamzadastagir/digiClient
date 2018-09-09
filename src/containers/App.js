@@ -43,7 +43,7 @@ class App extends Component {
       }
     };
 
-    const isAdmin = JSON.parse(localStorage.getItem('userView'));
+    const isAdmin = JSON.parse(localStorage.getItem('isAdmin'));
     const renderLeftDrawer = (list) => {
       return (
         <LeftDrawer

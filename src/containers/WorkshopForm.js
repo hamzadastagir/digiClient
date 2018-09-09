@@ -145,7 +145,6 @@ class WorkshopForm extends React.Component {
         title="Workshop Details"
         navigation="Dashboard / Workshop"
       >
-
         <Paper style={styles.root} elevation={1}>
           <h1 style={styles.titleText}>WORKSHOP DETAILS</h1>
           <form style={styles.formContainer}>
@@ -159,12 +158,10 @@ class WorkshopForm extends React.Component {
             <InputField name="rating" multiLine={false} floatingLabelText="Rating" handleChange={this.handleRating}/>
             <InputField name="timesRated" multiLine={false} floatingLabelText="Times Rated" handleChange={this.handleTimeRated}/>
             <InputField name="starsTotal" multiLine={false} floatingLabelText="Stars Total" handleChange={this.handleStars}/>
-
             <div style={styles.buttons}>
               <Link to="/">
                 <RaisedButton label="Cancel"/>
               </Link>
-
               <RaisedButton
                 label="Save"
                 style={styles.saveButton}
