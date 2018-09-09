@@ -45,8 +45,9 @@ class InfoBox extends React.Component {
     return (
       <Paper>
         <span style={styles.iconSpan}>
-          <Icon color={white}
-                style={styles.icon}
+          <Icon
+            color={white}
+            style={styles.icon}
           />
         </span>
 

@@ -21,7 +21,7 @@ class Header extends React.Component {
 
   handleLogout(){
     Auth.logout();
-    this.props.route.history.replace('/login');
+    this.props.history.push('/');
   }
   render() {
     const {styles, handleChangeRequestNavDrawer} = this.props;
@@ -81,7 +81,7 @@ class Header extends React.Component {
                 targetOrigin={{horizontal: 'right', vertical: 'top'}}
                 anchorOrigin={{horizontal: 'right', vertical: 'top'}}
               >
-                <MenuItem primaryText="Logout" onClick={this.handleLogout.bind(this)} containerElement={<Link to="/login"/>}/>
+                <MenuItem primaryText="Logout" onClick={this.handleLogout.bind(this)} containerElement={<Link to="/"/>}/>
               </IconMenu>}
             </div>
           }

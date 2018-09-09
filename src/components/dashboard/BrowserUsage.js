@@ -25,11 +25,8 @@ const BrowserUsage = (props) => {
   return (
     <Paper style={styles.paper}>
       <span style={GlobalStyles.title}>Browser Usage</span>
-
       <div style={GlobalStyles.clear}/>
-
       <div className="row">
-
         <div className="col-xs-12 col-sm-8 col-md-8 col-lg-8">
           <div style={styles.pieChartDiv}>
             <ResponsiveContainer>
@@ -56,8 +53,10 @@ const BrowserUsage = (props) => {
                   <ListItem
                     key={item.name}
                     leftAvatar={
-                      <Avatar icon={item.icon}
-                              backgroundColor={item.color}/>
+                      <Avatar
+                        icon={item.icon}
+                        backgroundColor={item.color}
+                      />
                     }>
                     {item.name}
                   </ListItem>
