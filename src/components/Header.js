@@ -41,6 +41,8 @@ class Header extends React.Component {
       }
     };
 
+    const token = localStorage.getItem('auth_token');
+
     return (
       <div>
         <AppBar
@@ -68,6 +70,7 @@ class Header extends React.Component {
                 <MenuItem key={1} primaryText="Register User" containerElement={<Link to="/register"/>}/>
                 <MenuItem key={2} primaryText="Login" containerElement={<Link to="/login"/>}/>
               </IconMenu>
+              { token &&
               <IconMenu
                 color={white}
                 iconButtonElement={
@@ -79,7 +82,7 @@ class Header extends React.Component {
                 anchorOrigin={{horizontal: 'right', vertical: 'top'}}
               >
                 <MenuItem primaryText="Logout" onClick={this.handleLogout.bind(this)} containerElement={<Link to="/login"/>}/>
-              </IconMenu>
+              </IconMenu>}
             </div>
           }
         />
