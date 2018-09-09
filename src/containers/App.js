@@ -43,6 +43,16 @@ class App extends Component {
       }
     };
 
+    const isAdmin = localStorage.getItem('userView');
+    const renderLeftDrawer = (list) => {
+      return (
+        <LeftDrawer
+          navDrawerOpen={navDrawerOpen}
+          menus={list}
+          username="User Admin"
+        />
+      );
+    };
 
     return (
       <MuiThemeProvider muiTheme={ThemeDefault}>
@@ -51,12 +61,7 @@ class App extends Component {
             styles={styles.header}
             handleChangeRequestNavDrawer={this.handleChangeRequestNavDrawer.bind(this)}
           />
-
-          <LeftDrawer
-            navDrawerOpen={navDrawerOpen}
-            menus={Data.menus}
-            username="User Admin"
-          />
+          {isAdmin ? renderLeftDrawer(Data.adminView) : renderLeftDrawer(Data.userView)}
 
           <div style={styles.container}>
             {this.props.children}

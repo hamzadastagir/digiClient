@@ -9,15 +9,21 @@ import ExpandMore from 'material-ui/svg-icons/navigation/expand-more';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 
 const data = {
-  menus: [
+  adminView: [
     { text: 'Dashboard', icon: <Assessment/>, link: '/dashboard' },
     { text: 'Create Workshop', icon: <Web/>, link: '/workshop/new' },
     { text: 'Workshops', icon: <GridOn/>, link: '/workshops' },
     { text: 'Create Genre', icon: <GridOn/>, link: '/genre/new' },
     { text: 'Genre List', icon: <GridOn/>, link: '/genres' },
     { text: 'Login ', icon: <PermIdentity/>, link: '/login' },
-    { text: 'Sign-Up', icon: <PermIdentity/>, link: '/register' },
+    { text: 'Create User', icon: <PermIdentity/>, link: '/register' },
     { text: 'Users', icon: <PermIdentity/>, link: '/users' }
+  ],
+  userView: [
+    { text: 'Workshops', icon: <GridOn/>, link: '/workshops' },
+    { text: 'Genre List', icon: <GridOn/>, link: '/genres' },
+    { text: 'LogIn ', icon: <PermIdentity/>, link: '/login' },
+    { text: 'SignUp', icon: <PermIdentity/>, link: '/register' },
   ],
   tablePage: {
     items: [
