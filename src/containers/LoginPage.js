@@ -95,7 +95,7 @@ class LoginPage extends React.Component {
     this.Auth.login(this.state.email,this.state.password)
       .then(response => {
         this.props.loginAction(response);
-        this.props.route.history.replace('/');
+        this.props.route.history.replace('/dashboard');
       })
       .catch(err =>{
         alert(err);
