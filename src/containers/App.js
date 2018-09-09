@@ -61,7 +61,7 @@ class App extends Component {
             styles={styles.header}
             handleChangeRequestNavDrawer={this.handleChangeRequestNavDrawer.bind(this)}
           />
-          {isAdmin ? renderLeftDrawer(Data.adminView) : renderLeftDrawer(Data.userView)}
+          {isAdmin ? renderLeftDrawer(Data.adminView) ? localStorage.getItem('auth_token') : renderLeftDrawer(Data.userView) : renderLeftDrawer(Data.visitorView)}
 
           <div style={styles.container}>
             {this.props.children}

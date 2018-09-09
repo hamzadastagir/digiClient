@@ -6,7 +6,7 @@ import {
 } from '../constants';
 import {baseApiUrl} from "../../utils/constants";
 
-export function createUser(body) {
+export function createUser(body, props) {
   return dispatch => {
     dispatch({
       type: CREATE_USER_REQUEST,
@@ -23,6 +23,7 @@ export function createUser(body) {
         type: CREATE_USER_SUCCESS,
         payload: res.data
       });
+      props.history.push('/dashboard')
     }).catch(() => {
       dispatch({
         type: CREATE_USER_FAILED,

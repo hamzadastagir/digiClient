@@ -1,7 +1,10 @@
 import React from 'react';
 import Assessment from 'material-ui/svg-icons/action/assessment';
 import GridOn from 'material-ui/svg-icons/image/grid-on';
+import HomePage from 'material-ui/svg-icons/action/home';
 import PermIdentity from 'material-ui/svg-icons/action/perm-identity';
+import Contact from 'material-ui/svg-icons/action/description';
+import AboutUs from 'material-ui/svg-icons/action/touch-app';
 import Web from 'material-ui/svg-icons/av/web';
 import {cyan600, pink600, purple600} from 'material-ui/styles/colors';
 import ExpandLess from 'material-ui/svg-icons/navigation/expand-less';
@@ -24,6 +27,13 @@ const data = {
     { text: 'Genre List', icon: <GridOn/>, link: '/genres' },
     { text: 'LogIn ', icon: <PermIdentity/>, link: '/login' },
     { text: 'SignUp', icon: <PermIdentity/>, link: '/register' },
+  ],
+  visitorView: [
+    { text: 'Home', icon: <HomePage/>, link: '/' },
+    { text: 'LogIn ', icon: <PermIdentity/>, link: '/login' },
+    { text: 'SignUp', icon: <PermIdentity/>, link: '/register' },
+    { text: 'About Us', icon: <AboutUs/>, link: '/about' },
+    { text: 'Contact Us', icon: <Contact/>, link: '/contact' },
   ],
   tablePage: {
     items: [

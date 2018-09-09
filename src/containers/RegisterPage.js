@@ -145,9 +145,9 @@ class RegisterPage extends React.Component {
   }
 }
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch, props){
   return {
-    onClick: (values) =>  dispatch(createUser(values)),
+    onClick: (values) =>  dispatch(createUser(values, props)),
   };
 }
 
